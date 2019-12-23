@@ -1,2 +1,4 @@
 /.idea/
 frontend/.idea/
+api/.idea/
+.env
