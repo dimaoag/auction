@@ -4,3 +4,5 @@ docker-compose exec api-php-fpm php -v
 docker-compose run --rm api-php-cli php -v
 docker-compose run --rm api-php-cli composer
 docker-compose run --rm api-php-cli composer require slim/slim slim/psr7
+docker-compose run --rm api-php-cli php bin/app.php hello
+docker-compose run --rm api-php-cli composer app // the same command
