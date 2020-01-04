@@ -6,3 +6,4 @@ docker-compose run --rm api-php-cli composer
 docker-compose run --rm api-php-cli composer require slim/slim slim/psr7
 docker-compose run --rm api-php-cli php bin/app.php hello
 docker-compose run --rm api-php-cli composer app // the same command
+docker-compose run --rm api-php-cli ip route
