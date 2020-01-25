@@ -10,9 +10,11 @@
         "php": "^7.4",
         "ext-json": "^7.4",
         "php-di/php-di": "^6.0",
+        "ramsey/uuid": "^3.9",
         "slim/psr7": "^0.6.0",
         "slim/slim": "^4.3",
-        "symfony/console": "^5.0"
+        "symfony/console": "^5.0",
+        "webmozart/assert": "^1.6"
     },
     "require-dev": {
         "overtrue/phplint": "^1.2",
@@ -32,12 +34,12 @@
         }
     },
     "scripts": {
-        "app": "php bin/app.php --ansi",
         "lint": "phplint",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
         "psalm": "psalm",
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --colors=always --coverage-html var/coverage"
+        "test-coverage": "phpunit --colors=always --coverage-html var/coverage",
+        "app": "php bin/app.php --ansi"
     }
 }
