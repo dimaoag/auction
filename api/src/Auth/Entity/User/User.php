@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Auth\Entity\User;
 
-//use ArrayObject;
+use ArrayObject;
 use DateTimeImmutable;
 use DomainException;
 
@@ -16,7 +16,7 @@ class User
     private ?string $passwordHash = null;
     private Status $status;
     private ?Token $joinConfirmToken = null;
-//    private ArrayObject $networks;
+    private ArrayObject $networks;
 
     private function __construct(Id $id, DateTimeImmutable $date, Email $email, Status $status)
     {
@@ -24,17 +24,17 @@ class User
         $this->date = $date;
         $this->email = $email;
         $this->status = $status;
-//        $this->networks = new ArrayObject();
+        $this->networks = new ArrayObject();
     }
 
     public static function joinByNetwork(
         Id $id,
         DateTimeImmutable $date,
-        Email $email
-//        NetworkIdentity $identity
+        Email $email,
+        NetworkIdentity $identity
     ): self {
         $user = new self($id, $date, $email, Status::active());
-//        $user->networks->append($identity);
+        $user->networks->append($identity);
         return $user;
     }
 
@@ -61,16 +61,16 @@ class User
         $this->joinConfirmToken = null;
     }
 
-//    public function attachNetwork(NetworkIdentity $identity): void
-//    {
-//        /** @var NetworkIdentity $existing */
-//        foreach ($this->networks as $existing) {
-//            if ($existing->isEqualTo($identity)) {
-//                throw new DomainException('Network is already attached.');
-//            }
-//        }
-//        $this->networks->append($identity);
-//    }
+    public function attachNetwork(NetworkIdentity $identity): void
+    {
+        /** @var NetworkIdentity $existing */
+        foreach ($this->networks as $existing) {
+            if ($existing->isEqualTo($identity)) {
+                throw new DomainException('Network is already attached.');
+            }
+        }
+        $this->networks->append($identity);
+    }
 
     public function isWait(): bool
     {
@@ -107,12 +107,12 @@ class User
         return $this->joinConfirmToken;
     }
 
-//    /**
-//     * @return NetworkIdentity[]
-//     */
-//    public function getNetworks(): array
-//    {
-//        /** @var NetworkIdentity[] */
-//        return $this->networks->getArrayCopy();
-//    }
+    /**
+     * @return NetworkIdentity[]
+     */
+    public function getNetworks(): array
+    {
+        /** @var NetworkIdentity[] */
+        return $this->networks->getArrayCopy();
+    }
 }
