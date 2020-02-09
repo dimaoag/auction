@@ -19,6 +19,7 @@ $cli = new Application('Console');
  * @psalm-suppress MixedArrayAccess
  */
 $commands = $container->get('config')['console']['commands'];
+
 foreach ($commands as $name) {
     /** @var Command $command */
     $command = $container->get($name);

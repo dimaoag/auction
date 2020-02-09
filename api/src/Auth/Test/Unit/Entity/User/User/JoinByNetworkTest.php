@@ -8,7 +8,6 @@ use App\Auth\Entity\User\NetworkIdentity;
 use App\Auth\Entity\User\Email;
 use App\Auth\Entity\User\Id;
 use App\Auth\Entity\User\User;
-use App\Auth\Test\Builder\UserBuilder;
 use PHPUnit\Framework\TestCase;
 
 /**
