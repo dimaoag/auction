@@ -17,11 +17,11 @@ class User
     private ?string $passwordHash = null;
     private Status $status;
     private ?Token $joinConfirmToken = null;
-    private ArrayObject $networks;
     private ?Token $passwordResetToken = null;
     private ?Email $newEmail = null;
     private ?Token $newEmailToken = null;
     private Role $role;
+    private ArrayObject $networks;
 
     private function __construct(Id $id, DateTimeImmutable $date, Email $email, Status $status)
     {
@@ -37,10 +37,10 @@ class User
         Id $id,
         DateTimeImmutable $date,
         Email $email,
-        NetworkIdentity $identity
+        Network $network
     ): self {
         $user = new self($id, $date, $email, Status::active());
-        $user->networks->append($identity);
+        $user->networks->append($network);
         return $user;
     }
 
@@ -67,15 +67,15 @@ class User
         $this->joinConfirmToken = null;
     }
 
-    public function attachNetwork(NetworkIdentity $identity): void
+    public function attachNetwork(Network $network): void
     {
-        /** @var NetworkIdentity $existing */
+        /** @var Network $existing */
         foreach ($this->networks as $existing) {
-            if ($existing->isEqualTo($identity)) {
+            if ($existing->isEqualTo($network)) {
                 throw new DomainException('Network is already attached.');
             }
         }
-        $this->networks->append($identity);
+        $this->networks->append($network);
     }
 
     public function requestPasswordReset(Token $token, DateTimeImmutable $date): void
@@ -204,11 +204,11 @@ class User
     }
 
     /**
-     * @return NetworkIdentity[]
+     * @return Network[]
      */
     public function getNetworks(): array
     {
-        /** @var NetworkIdentity[] */
+        /** @var Network[] */
         return $this->networks->getArrayCopy();
     }
 }
