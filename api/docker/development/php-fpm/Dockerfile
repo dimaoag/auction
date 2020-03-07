@@ -1,12 +1,13 @@
-FROM php:7.4-fpm
+FROM php:7.4-fpm-alpine
 
-RUN apt-get update && apt-get install -y unzip git autoconf g++ make \
+RUN apk update && apk add autoconf g++ make \
     && pecl install xdebug \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable xdebug
 
-RUN apt-get install --no-install-recommends -y libpq-dev \
-    && docker-php-ext-install pdo pgsql pdo_pgsql
+RUN apk add postgresql-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo_pgsql pdo_mysql
 
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 

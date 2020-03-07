@@ -1,36 +1,39 @@
-FROM php:7.4-cli AS builder
+FROM php:7.4-cli-alpine AS builder
 
-RUN apt-get update && apt-get install -y unzip git
+RUN apk add postgresql-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo_pgsql opcache
 
-RUN apt-get install --no-install-recommends -y libpq-dev \
-    && docker-php-ext-install pdo pgsql pdo_pgsql opcache
+RUN apk add unzip
+
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --quiet \
     && composer global require hirak/prestissimo --no-plugins --no-scripts \
     && rm -rf /root/.composer/cache
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
 WORKDIR /app
 
 COPY ./composer.json ./composer.lock ./
 
-RUN composer install --no-dev --prefer-dist --no-progress --no-suggest --no-scripts --optimize-autoloader \
+RUN composer install --no-dev --prefer-dist --no-progress --no-suggest --optimize-autoloader \
     && rm -rf /root/.composer/cache
-
 
 ### CLI ###
 
+FROM php:7.4-cli-alpine
 
-FROM php:7.4-cli
-
-RUN apt-get install --no-install-recommends -y libpq-dev \
-    && docker-php-ext-install pdo pgsql pdo_pgsql opcache
+RUN apk add postgresql-dev bash coreutils \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo_pgsql pdo_mysql opcache
 
 RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 
 COPY ./docker/common/php/conf.d /usr/local/etc/php/conf.d
 COPY ./docker/production/php/conf.d /usr/local/etc/php/conf.d
+
+COPY ./docker/common/wait-for-it.sh /usr/local/bin/wait-for-it
+RUN chmod 555 /usr/local/bin/wait-for-it
 
 WORKDIR /app
 

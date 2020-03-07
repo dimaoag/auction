@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200307172906 extends AbstractMigration
+final class Version20200307213633 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -41,7 +41,6 @@ final class Version20200307172906 extends AbstractMigration
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SCHEMA public');
         $this->addSql('ALTER TABLE auth_user_networks DROP CONSTRAINT FK_3EA78C3BA76ED395');
         $this->addSql('DROP TABLE auth_users');
         $this->addSql('DROP TABLE auth_user_networks');

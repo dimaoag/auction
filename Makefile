@@ -2,10 +2,11 @@ init: docker-down-clear api-clear docker-pull docker-build docker-up api-init
 up: docker-up
 down: docker-down
 restart: down up
-check: lint analyze test
+check: lint analyze validate-schema test
 lint: api-lint
 analyze: api-analyze
 test: api-test
+validate-schema: api-validate-schema
 test-coverage: api-test-coverage
 test-unit: api-test-unit
 test-unit-coverage: api-test-unit-coverage
@@ -40,6 +41,12 @@ api-composer-install:
 
 api-composer-update:
 	docker-compose run --rm api-php-cli composer update
+
+api-validate-schema:
+	docker-compose run --rm api-php-cli composer app orm:validate-schema
+
+api-migrations:
+	docker-compose run --rm api-php-cli composer app migrations:migrate
 
 api-lint:
 	docker-compose run --rm api-php-cli composer lint

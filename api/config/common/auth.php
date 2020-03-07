@@ -10,7 +10,7 @@ use Doctrine\ORM\EntityRepository;
 use Psr\Container\ContainerInterface;
 
 return [
-    UserRepository::class => static function (ContainerInterface $container): UserRepository {
+    UserRepository::class => function (ContainerInterface $container): UserRepository {
         /** @var EntityManagerInterface $em */
         $em = $container->get(EntityManagerInterface::class);
         /** @var EntityRepository $repo */
