@@ -2,3 +2,4 @@ docker-compose run --rm api-php-cli composer app orm:validate-schema
 
 docker-compose run --rm api-php-cli composer app migrations:diff
 docker-compose run --rm api-php-cli composer app migrations:migrate
+docker-compose run --rm api-php-cli php bin/app.php --ansi migrations:migrate --no-interaction                                                         ✔  3s  11:28:33
