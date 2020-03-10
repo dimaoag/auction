@@ -1,4 +1,4 @@
-certbot_email: mail@deworker.pro
+certbot_email: dimaoag@gmail.com
 certbot_hosts:
-    - demo-auction.deworker.pro
-    - api.demo-auction.deworker.pro
+    - groundvn.site
+    - api.groundvn.site

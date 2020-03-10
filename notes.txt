@@ -3,3 +3,15 @@ docker-compose run --rm api-php-cli composer app orm:validate-schema
 docker-compose run --rm api-php-cli composer app migrations:diff
 docker-compose run --rm api-php-cli composer app migrations:migrate
 docker-compose run --rm api-php-cli php bin/app.php --ansi migrations:migrate --no-interaction
+
+
+
+docker login -u USERNAME -p TOKEN docker.pkg.github.com
+REGISTRY=docker.pkg.github.com/dimaoag/auction IMAGE_TAG=master-1 make build
+REGISTRY=docker.pkg.github.com/dimaoag/auction IMAGE_TAG=master-1 make push
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@IP
+
+make site
+
+

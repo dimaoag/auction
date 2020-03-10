@@ -1,8 +1,4 @@
 ---
--   name: Update apt packages
-    apt:
-        update_cache: yes
-
 -   name: Add Certbot repository
     apt_repository:
         repo: 'deb http://ftp.debian.org/debian buster-backports main'
