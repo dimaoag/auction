@@ -3,6 +3,20 @@
     hosts: site
     remote_user: root
     tasks:
+        -   name: Install
+            apt:
+                name:
+                    - debian-archive-keyring
+                    - debian-keyring
+
+        -   name: Update APT package cache
+            apt:
+                update_cache: yes
+
+#        -   name: Run get key
+#            become: yes
+#            command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC
+
         -   name: Update APT package cache
             apt:
                 update_cache: yes

@@ -13,6 +13,12 @@ REGISTRY=docker.pkg.github.com/dimaoag/auction IMAGE_TAG=master-1 make push
 
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@IP
 
+ansible all -m ping -i hosts.yml
+
+make upgrade
 make site
+make authorize
+cd ..
+HOST=user@IP PORT=22 REGISTRY=docker.pkg.github.com/dimaoag/auction IMAGE_TAG=master-1 BUILD_NUMBER=1 make deploy
 
 
