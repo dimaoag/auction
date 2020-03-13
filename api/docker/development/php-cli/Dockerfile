@@ -7,7 +7,7 @@ RUN apk update && apk add autoconf g++ make \
 
 RUN apk add postgresql-dev bash coreutils \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install pdo_pgsql pdo_mysql
+    && docker-php-ext-install pdo_pgsql
 
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
