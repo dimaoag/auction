@@ -16,5 +16,5 @@ return [
         /** @var EntityRepository $repo */
         $repo = $em->getRepository(User::class);
         return new UserRepository($em, $repo);
-    }
+    },
 ];
