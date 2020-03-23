@@ -64,6 +64,6 @@ class Token
 
     public function isEmpty(): bool
     {
-        return empty($this->token);
+        return empty($this->value);
     }
 }
