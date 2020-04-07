@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Middleware\TranslatorLocale;
+use App\Http\Middleware\LocaleNegotiation;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Translation\Loader\PhpFileLoader;
 use Symfony\Component\Translation\Loader\XliffFileLoader;
@@ -30,7 +30,7 @@ return [
         return $translator;
     },
 
-    TranslatorLocale::class => function (ContainerInterface $container): TranslatorLocale {
+    LocaleNegotiation::class => function (ContainerInterface $container): LocaleNegotiation {
         /** @var Translator $translator */
         $translator = $container->get(Translator::class);
         /**
@@ -39,7 +39,7 @@ return [
          */
         $config = $container->get('config')['locales'];
 
-        return new TranslatorLocale($translator, $config['allowed']);
+        return new LocaleNegotiation($config['allowed']);
     },
 
     'config' => [
