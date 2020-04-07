@@ -25,7 +25,7 @@ Content-Type: application/json
 
 POST http://localhost:8081/v1/auth/join
 Accept: application/json
-Accept-Language: ru_RU;q=0.9, en;q=0.8, *;q=0.5
+Accept-Language: ru;q=0.9, en;q=0.8, *;q=0.5
 Content-Type: application/json
 
 {
