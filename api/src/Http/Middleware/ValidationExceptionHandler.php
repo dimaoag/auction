@@ -31,6 +31,9 @@ class ValidationExceptionHandler implements MiddlewareInterface
         $errors = [];
         /** @var ConstraintViolationInterface $violation */
         foreach ($violations as $violation) {
+            /**
+             * @psalm-suppress UndefinedDocblockClass
+             */
             $errors[$violation->getPropertyPath()] = $violation->getMessage();
         }
         return $errors;
