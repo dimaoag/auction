@@ -84,9 +84,12 @@ api-test-functional-coverage:
 	docker-compose run --rm api-php-cli composer test-coverage -- --testsuite=functional
 
 frontend-clear:
-	docker run --rm -v ${PWD}/frontend:/app -w /app alpine sh -c 'rm -rf build'
+	docker run --rm -v ${PWD}/frontend:/app -w /app alpine sh -c 'rm -rf .ready build'
 
-frontend-init: frontend-yarn-install
+frontend-init: frontend-yarn-install frontend-ready
+
+frontend-ready:
+	docker run --rm -v ${PWD}/frontend:/app -w /app alpine touch .ready
 
 frontend-yarn-install:
 	docker-compose run --rm frontend-node-cli yarn install

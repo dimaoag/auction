@@ -5,3 +5,4 @@
 .DS_Store
 /yarn-debug.log*
 /yarn-error.log*
+/.ready
