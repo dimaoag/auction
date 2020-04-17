@@ -101,6 +101,9 @@ frontend-lint:
 frontend-eslint-fix:
 	docker-compose run --rm frontend-node-cli yarn eslint-fix
 
+frontend-pretty:
+	docker-compose run --rm frontend-node-cli yarn prettier
+
 frontend-ready:
 	docker run --rm -v ${PWD}/frontend:/app -w /app alpine touch .ready
 
