@@ -7,7 +7,7 @@ down: docker-down
 update: api-composer-update
 restart: down up
 check: lint analyze validate-schema test
-lint: api-lint
+lint: api-lint frontend-lint
 analyze: api-analyze
 validate-schema: api-validate-schema
 test: api-test api-fixtures frontend-test
@@ -93,6 +93,12 @@ frontend-test:
 
 frontend-test-watch:
 	docker-compose run --rm frontend-node-cli yarn test
+
+frontend-lint:
+	docker-compose run --rm frontend-node-cli yarn lint
+
+frontend-lint-fix:
+	docker-compose run --rm frontend-node-cli yarn lint-fix
 
 frontend-ready:
 	docker run --rm -v ${PWD}/frontend:/app -w /app alpine touch .ready

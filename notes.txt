@@ -30,5 +30,7 @@ docker-compose run --rm frontend-node-cli yarn install
 docker-compose run --rm frontend-node-cli yarn build
 docker-compose run --rm frontend-node-cli yarn test
 docker-compose run --rm frontend-node-cli yarn test --watchAll=false
+docker-compose run --rm frontend-node-cli yarn add eslint --dev
+docker-compose run --rm frontend-node-cli npx eslint --init
 
 
