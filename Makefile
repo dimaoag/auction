@@ -10,7 +10,7 @@ check: lint analyze validate-schema test
 lint: api-lint
 analyze: api-analyze
 validate-schema: api-validate-schema
-test: api-test api-fixtures
+test: api-test api-fixtures frontend-test
 test-coverage: api-test-coverage
 test-unit: api-test-unit
 test-unit-coverage: api-test-unit-coverage
@@ -87,6 +87,12 @@ frontend-clear:
 	docker run --rm -v ${PWD}/frontend:/app -w /app alpine sh -c 'rm -rf .ready build'
 
 frontend-init: frontend-yarn-install frontend-ready
+
+frontend-test:
+	docker-compose run --rm frontend-node-cli yarn test --watchAll=false
+
+frontend-test-watch:
+	docker-compose run --rm frontend-node-cli yarn test
 
 frontend-ready:
 	docker run --rm -v ${PWD}/frontend:/app -w /app alpine touch .ready
