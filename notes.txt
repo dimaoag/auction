@@ -33,4 +33,7 @@ docker-compose run --rm frontend-node-cli yarn test --watchAll=false
 docker-compose run --rm frontend-node-cli yarn add eslint --dev
 docker-compose run --rm frontend-node-cli npx eslint --init
 
+// cucumber
+docker-compose run --rm cucumber-node-cli yarn install
+
 
