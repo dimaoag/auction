@@ -36,6 +36,11 @@ docker-compose run --rm frontend-node-cli npx eslint --init
 // cucumber
 docker-compose run --rm cucumber-node-cli yarn install
 
+// all ENV properties
+docker-compose run --rm api-php-cli env
+
+
+
 
 
 
