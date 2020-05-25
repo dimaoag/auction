@@ -39,6 +39,13 @@ docker-compose run --rm cucumber-node-cli yarn install
 // all ENV properties
 docker-compose run --rm api-php-cli env
 
+// Testing in test-mode
+make try-build
+
+
+make try-testing-build
+make try-testing-init
+make try-testing-e2e
 
 
 
