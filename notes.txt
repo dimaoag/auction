@@ -52,6 +52,31 @@ make try-testing-e2e
 
 - git push origin master
 
+- create new job -> enter name -> multibranch pipeline -> ok
+    Branch sources -> Github
+    Repository HTTPS URL
+    Add global credential (Jenkins)
+        Kind -> Username with password
+        username -> dimaoag
+        password ->
+            In Github create new personal access token and set this token in password field
+                + repo
+                + admin:repo_hook
+                + user
+                    + email
+        ID -> GitHub
+        Description -> GitHub
+    Credentials -> choose new created credential GitHub
+    Behaviours -> Add -> Prune stale remote-tracking branches
+    Script Path -> Jenkinsfile (path to Jenkinsfile)
+    + Periodically if not otherwise run -> 1 minute
+    Max # of old items to keep -> 20
+    Ok
+
+- USER=admin HOST=https://jenkins.groundvn.site make validate-jenkins
+
+
+
 
 
 

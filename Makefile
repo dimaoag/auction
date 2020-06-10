@@ -209,6 +209,9 @@ push-api:
 	docker push ${REGISTRY}/auction-api-php-fpm:${IMAGE_TAG}
 	docker push ${REGISTRY}/auction-api-php-cli:${IMAGE_TAG}
 
+validate-jenkins:
+	curl --user ${USER} -X POST -F "jenkinsfile=<Jenkinsfile" ${HOST}/pipeline-model-converter/validate
+
 deploy:
 	ssh ${HOST} -p ${PORT} 'rm -rf site_${BUILD_NUMBER}'
 	ssh ${HOST} -p ${PORT} 'mkdir site_${BUILD_NUMBER}'
