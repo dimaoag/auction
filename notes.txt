@@ -93,8 +93,3 @@ make try-testing-e2e
     description -> REGISTRY_AUTH
 
 
-
-
-
-
-
