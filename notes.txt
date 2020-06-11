@@ -105,3 +105,7 @@ make try-testing-e2e
     secret -> 22
     id -> PRODUCTION_PORT
     description -> PRODUCTION_PORT
+
+- cd provisioning
+    make generate-deploy-key
+    make authorize-deploy
