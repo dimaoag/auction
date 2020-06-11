@@ -173,8 +173,7 @@ make try-testing-e2e
     + Use SMTP Authentication
         username -> secret
         password -> secret
-        + use ssl
-        port -> 587
+        port -> 2525
         default Recipients -> myemail@mail.com
 
 
