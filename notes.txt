@@ -167,3 +167,15 @@ make try-testing-e2e
 
 - install sshagent plugin in Jenkins. settings -> plugins -> search ssh
 
+======== add smtp client for emailing
+- settings -> config system -> Extended E-mail Notification
+    SMTP server -> smtp.mailtrap.io
+    + Use SMTP Authentication
+        username -> secret
+        password -> secret
+        + use ssl
+        port -> 587
+        default Recipients -> myemail@mail.com
+
+
+
