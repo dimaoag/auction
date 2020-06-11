@@ -61,6 +61,8 @@ make try-testing-e2e
         password ->
             In Github create new personal access token and set this token in password field
                 + repo
+                + write:packages
+                + read:packages
                 + admin:repo_hook
                 + user
                     + email
@@ -74,6 +76,14 @@ make try-testing-e2e
     Ok
 
 - USER=admin HOST=https://jenkins.groundvn.site make validate-jenkins
+
+- add REGISTRY global credential -> add credentials
+    kind -> secret text
+    secret -> docker.pkg.github.com/dimaoag/auction
+    id -> REGISTRY
+    description -> REGISTRY
+
+IMAGE_TAG = jenkins-auction-feature/blog-1 -> jenkins-auction-feature/blog-1
 
 
 
