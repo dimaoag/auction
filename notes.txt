@@ -83,7 +83,14 @@ make try-testing-e2e
     id -> REGISTRY
     description -> REGISTRY
 
-IMAGE_TAG = jenkins-auction-feature/blog-1 -> jenkins-auction-feature/blog-1
+// IMAGE_TAG = jenkins-auction-feature/blog-1 -> jenkins-auction-feature/blog-1
+
+- add REGISTRY_AUTH global credential -> add credentials
+    kind -> username with password
+    username -> dimaoag
+    password -> secret
+    id -> REGISTRY_AUTH
+    description -> REGISTRY_AUTH
 
 
 
