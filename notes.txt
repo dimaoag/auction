@@ -92,4 +92,16 @@ make try-testing-e2e
     id -> REGISTRY_AUTH
     description -> REGISTRY_AUTH
 
+======> add locally (project) credentials
 
+- add locally PRODUCTION_HOST credential -> add credentials
+    kind -> secret text
+    secret -> IP server groundvn.site
+    id -> PRODUCTION_HOST
+    description -> PRODUCTION_HOST
+
+- add locally PRODUCTION_PORT credential -> add credentials
+    kind -> secret text
+    secret -> 22
+    id -> PRODUCTION_PORT
+    description -> PRODUCTION_PORT
