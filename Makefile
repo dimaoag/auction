@@ -174,10 +174,10 @@ try-testing-e2e:
 	REGISTRY=localhost IMAGE_TAG=0 make testing-e2e
 
 testing-smoke:
-	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm cucumber-node-cli yarn smoke
+	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm cucumber-node-cli yarn smoke-ci
 
 testing-e2e:
-	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm cucumber-node-cli yarn e2e
+	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm cucumber-node-cli yarn e2e-ci
 
 
 build: build-gateway build-frontend build-api
