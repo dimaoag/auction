@@ -109,3 +109,61 @@ make try-testing-e2e
 - cd provisioning
     make generate-deploy-key
     make authorize-deploy
+
+- add locally PRODUCTION_AUTH credential -> add credentials
+    kind -> SSH username with private key
+    id -> PRODUCTION_AUTH
+    description -> PRODUCTION_AUTH
+    username -> deploy
+    + private key and copy from provisioning/files/deploy_rsa all data and set to field
+
+- add locally API_DB_PASSWORD credential -> add credentials
+    kind -> secret text
+    secret -> secret
+    id -> API_DB_PASSWORD
+    description -> API_DB_PASSWORD
+
+- add locally API_MAILER_HOST credential -> add credentials
+    kind -> secret text
+    secret -> smtp.mailtrap.io
+    id -> API_MAILER_HOST
+    description -> API_MAILER_HOST
+
+- add locally API_MAILER_PORT credential -> add credentials
+    kind -> secret text
+    secret -> 2525
+    id -> API_MAILER_PORT
+    description -> API_MAILER_PORT
+
+- add locally API_MAILER_USER credential -> add credentials
+    kind -> secret text
+    secret -> secret
+    id -> API_MAILER_USER
+    description -> API_MAILER_USER
+
+- add locally API_MAILER_PASSWORD credential -> add credentials
+    kind -> secret text
+    secret -> secret
+    id -> API_MAILER_PASSWORD
+    description -> API_MAILER_PASSWORD
+
+- add locally API_MAILER_ENCRYPTION credential -> add credentials
+    kind -> secret text
+    secret -> tls
+    id -> API_MAILER_ENCRYPTION
+    description -> API_MAILER_ENCRYPTION
+
+- add locally API_MAILER_FROM_EMAIL credential -> add credentials
+    kind -> secret text
+    secret -> secret
+    id -> API_MAILER_FROM_EMAIL
+    description -> API_MAILER_FROM_EMAIL
+
+- add locally SENTRY_DSN credential -> add credentials
+    kind -> secret text
+    secret -> secret
+    id -> SENTRY_DSN
+    description -> SENTRY_DSN
+
+- install sshagent plugin in Jenkins. settings -> plugins -> search ssh
+
