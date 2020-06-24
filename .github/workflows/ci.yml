@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+env:
+  REGISTRY: docker.pkg.github.com/dimaoag/auction
+  REGISTRY_HOST: docker.pkg.github.com
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,5 +34,16 @@ jobs:
             path: cucumber/node_modules
             key: cucumber-yarn-${{ hashFiles('cucumber/yarn.lock') }}
 
+      - name: Docker login
+          uses: azure/docker-login@v1
+          with:
+            login-server: ${{ env.REGISTRY_HOST }}
+            username: dimaoag
+            password: ${{ github.token }}
+
       -   name: Dev Init
           run: make init
+
+      -   name: Push dev cache images
+          run: make push-dev-cache
+
