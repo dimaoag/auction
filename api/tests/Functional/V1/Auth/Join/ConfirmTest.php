@@ -59,7 +59,7 @@ class ConfirmTest extends WebTestCase
 
         self::assertEquals([
             'errors' => [
-                'token' => 'This value should be blank.',
+                'token' => 'This value should not be blank.',
             ],
         ], Json::decode($body));
     }
