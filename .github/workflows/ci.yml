@@ -126,6 +126,11 @@ jobs:
                     known_hosts: ${{ secrets.PRODUCTION_HOST }}
                 if: ${{ github.ref == 'refs/heads/master' }}
 
+            -   name: Set private key
+                uses: webfactory/ssh-agent@v0.4.0
+                with:
+                    ssh-private-key: ${{ secrets.PRODUCTION_KEY }}
+
             -   name: Deploy
                 run: make deploy
                 env:
