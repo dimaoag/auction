@@ -115,33 +115,33 @@ jobs:
             -   name: Testing Down
                 run: make testing-down-clear
 
-            -   name: Push
-                run: make push
-                if: ${{ github.ref == 'refs/heads/master' }}
-
-            -   name: Install SSH key
-                uses: shimataro/ssh-key-action@v2
-                with:
-                    key: ${{ secrets.PRODUCTION_KEY }}
-                    known_hosts: ${{ secrets.PRODUCTION_HOST }}
-                if: ${{ github.ref == 'refs/heads/master' }}
-
-            -   name: Set private key
-                uses: webfactory/ssh-agent@v0.4.0
-                with:
-                    ssh-private-key: ${{ secrets.PRODUCTION_KEY }}
-
-            -   name: Deploy
-                run: make deploy
-                env:
-                    BUILD_NUMBER: ${GITHUB_RUN_NUMBER}
-                    HOST: ${{ secrets.PRODUCTION_HOST }}
-                    PORT: ${{ secrets.PRODUCTION_PORT }}
-                    API_DB_PASSWORD: ${{ secrets.API_DB_PASSWORD }}
-                    API_MAILER_HOST: ${{ secrets.API_MAILER_HOST }}
-                    API_MAILER_PORT: ${{ secrets.API_MAILER_PORT }}
-                    API_MAILER_USER: ${{ secrets.API_MAILER_USER }}
-                    API_MAILER_PASSWORD: ${{ secrets.API_MAILER_PASSWORD }}
-                    API_MAILER_FROM_EMAIL: ${{ secrets.API_MAILER_FROM_EMAIL }}
-                    SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-                if: ${{ github.ref == 'refs/heads/master' }}
+#            -   name: Push
+#                run: make push
+#                if: ${{ github.ref == 'refs/heads/master' }}
+#
+#            -   name: Install SSH key
+#                uses: shimataro/ssh-key-action@v2
+#                with:
+#                    key: ${{ secrets.PRODUCTION_KEY }}
+#                    known_hosts: ${{ secrets.PRODUCTION_HOST }}
+#                if: ${{ github.ref == 'refs/heads/master' }}
+#
+#            -   name: Set private key
+#                uses: webfactory/ssh-agent@v0.4.0
+#                with:
+#                    ssh-private-key: ${{ secrets.PRODUCTION_KEY }}
+#
+#            -   name: Deploy
+#                run: make deploy
+#                env:
+#                    BUILD_NUMBER: ${GITHUB_RUN_NUMBER}
+#                    HOST: ${{ secrets.PRODUCTION_HOST }}
+#                    PORT: ${{ secrets.PRODUCTION_PORT }}
+#                    API_DB_PASSWORD: ${{ secrets.API_DB_PASSWORD }}
+#                    API_MAILER_HOST: ${{ secrets.API_MAILER_HOST }}
+#                    API_MAILER_PORT: ${{ secrets.API_MAILER_PORT }}
+#                    API_MAILER_USER: ${{ secrets.API_MAILER_USER }}
+#                    API_MAILER_PASSWORD: ${{ secrets.API_MAILER_PASSWORD }}
+#                    API_MAILER_FROM_EMAIL: ${{ secrets.API_MAILER_FROM_EMAIL }}
+#                    SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+#                if: ${{ github.ref == 'refs/heads/master' }}
