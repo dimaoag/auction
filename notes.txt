@@ -188,5 +188,14 @@ make try-testing-e2e
 
 make docker-build
 
-- add secrets.REGISTRY in github
+- add secrets.PRODUCTION_KEY // private key -> provisioning/files/deploy_rsa
+- add secrets.PRODUCTION_HOST // IP
+- add secrets.PRODUCTION_PORT // 22
+- add secrets.API_DB_PASSWORD
+- add secrets.API_MAILER_HOST
+- add secrets.API_MAILER_PORT
+- add secrets.API_MAILER_USER
+- add secrets.API_MAILER_PASSWORD
+- add secrets.API_MAILER_FROM_EMAIL
+- add secrets.SENTRY_DSN
 
