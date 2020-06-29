@@ -48,6 +48,8 @@ make try-testing-init
 make try-testing-e2e
 
 
+========================================================================================================
+
 // Init Jenkins
 
 - git push origin master
@@ -177,4 +179,12 @@ make try-testing-e2e
         default Recipients -> myemail@mail.com
 
 
+==============================================================================================
+
+
+// Bitbucket pipeline
+
+// add docker build kit
+
+make docker-build
 
