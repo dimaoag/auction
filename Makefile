@@ -30,13 +30,10 @@ docker-down-clear:
 	docker-compose down -v --remove-orphans
 
 docker-pull:
-	- docker-compose pull --include-deps
+	docker-compose pull --include-deps
 
 docker-build:
-	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build --build-arg BUILDKIT_INLINE_CACHE=1
-
-push-dev-cache:
-	docker-compose push
+	docker-compose build
 
 api-clear:
 	docker run --rm -v ${PWD}/api:/app -w /app alpine sh -c 'rm -rf var/cache/* var/log/* var/test/*'
@@ -151,45 +148,13 @@ testing-down-clear:
 testing-build: testing-build-gateway testing-build-testing-api-php-cli testing-build-cucumber
 
 testing-build-gateway:
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-    --cache-from ${REGISTRY}/auction-testing-gateway:cache \
-	--tag ${REGISTRY}/auction-testing-gateway:cache \
-	--tag ${REGISTRY}/auction-testing-gateway:${IMAGE_TAG} \
-	--file gateway/docker/testing/nginx/Dockerfile gateway/docker
+	docker --log-level=debug build --pull --file=gateway/docker/testing/nginx/Dockerfile --tag=${REGISTRY}/auction-testing-gateway:${IMAGE_TAG} gateway/docker
 
 testing-build-testing-api-php-cli:
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--target builder \
-	--cache-from ${REGISTRY}/auction-testing-api-php-cli:cache-builder \
-	--tag ${REGISTRY}/auction-testing-api-php-cli:cache-builder \
-	--file api/docker/testing/php-cli/Dockerfile api
-
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--cache-from ${REGISTRY}/auction-testing-api-php-cli:cache-builder \
-	--cache-from ${REGISTRY}/auction-testing-api-php-cli:cache \
-	--tag ${REGISTRY}/auction-testing-api-php-cli:cache \
-	--tag ${REGISTRY}/auction-testing-api-php-cli:${IMAGE_TAG} \
-	--file api/docker/testing/php-cli/Dockerfile api
+	docker --log-level=debug build --pull --file=api/docker/testing/php-cli/Dockerfile --tag=${REGISTRY}/auction-testing-api-php-cli:${IMAGE_TAG} api
 
 testing-build-cucumber:
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--cache-from ${REGISTRY}/auction-cucumber-node-cli:cache \
-	--tag ${REGISTRY}/auction-cucumber-node-cli:cache \
-	--tag ${REGISTRY}/auction-cucumber-node-cli:${IMAGE_TAG} \
-	--file cucumber/docker/testing/node/Dockerfile \
-	cucumber
-
-push-testing-build-cache: push-testing-build-cache-gateway push-testing-build-cache-api-php-cli push-testing-build-cache-cucumber
-
-push-testing-build-cache-gateway:
-	docker push ${REGISTRY}/auction-testing-gateway:cache
-
-push-testing-build-cache-api-php-cli:
-	docker push ${REGISTRY}/auction-testing-api-php-cli:cache-builder
-	docker push ${REGISTRY}/auction-testing-api-php-cli:cache
-
-push-testing-build-cache-cucumber:
-	docker push ${REGISTRY}/auction-cucumber-node-cli:cache
+	docker --log-level=debug build --pull --file=cucumber/docker/testing/node/Dockerfile --tag=${REGISTRY}/auction-cucumber-node-cli:${IMAGE_TAG} cucumber
 
 try-testing: try-build try-testing-build try-testing-init try-testing-smoke try-testing-e2e try-testing-down-clear
 
@@ -218,81 +183,18 @@ testing-e2e:
 build: build-gateway build-frontend build-api
 
 build-gateway:
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--cache-from ${REGISTRY}/auction-gateway:cache \
-	--tag ${REGISTRY}/auction-gateway:cache \
-	--tag ${REGISTRY}/auction-gateway:${IMAGE_TAG} \
-	--file gateway/docker/production/nginx/Dockerfile gateway/docker
+	docker --log-level=debug build --pull --file=gateway/docker/production/nginx/Dockerfile --tag=${REGISTRY}/auction-gateway:${IMAGE_TAG} gateway/docker
 
 build-frontend:
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--target builder \
-	--cache-from ${REGISTRY}/auction-frontend:cache-builder \
-	--tag ${REGISTRY}/auction-frontend:cache-builder \
-	--file frontend/docker/production/nginx/Dockerfile frontend
-
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--cache-from ${REGISTRY}/auction-frontend:cache-builder \
-	--cache-from ${REGISTRY}/auction-frontend:cache \
-	--tag ${REGISTRY}/auction-frontend:cache \
-	--tag ${REGISTRY}/auction-frontend:${IMAGE_TAG} \
-	--file frontend/docker/production/nginx/Dockerfile frontend
+	docker --log-level=debug build --pull --file=frontend/docker/production/nginx/Dockerfile --tag=${REGISTRY}/auction-frontend:${IMAGE_TAG} frontend
 
 build-api:
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--cache-from ${REGISTRY}/auction-api:cache \
-	--tag ${REGISTRY}/auction-api:cache \
-	--tag ${REGISTRY}/auction-api:${IMAGE_TAG} \
-	--file api/docker/production/nginx/Dockerfile api
-
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--target builder \
-	--cache-from ${REGISTRY}/auction-api-php-fpm:cache-builder \
-	--tag ${REGISTRY}/auction-api-php-fpm:cache-builder \
-	--file api/docker/production/php-fpm/Dockerfile api
-
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--cache-from ${REGISTRY}/auction-api-php-fpm:cache-builder \
-	--cache-from ${REGISTRY}/auction-api-php-fpm:cache \
-	--tag ${REGISTRY}/auction-api-php-fpm:cache \
-	--tag ${REGISTRY}/auction-api-php-fpm:${IMAGE_TAG} \
-	--file api/docker/production/php-fpm/Dockerfile api
-
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--target builder \
-	--cache-from ${REGISTRY}/auction-api-php-cli:cache-builder \
-	--tag ${REGISTRY}/auction-api-php-cli:cache-builder \
-	--file api/docker/production/php-cli/Dockerfile api
-
-	DOCKER_BUILDKIT=1 docker --log-level=debug build --pull --build-arg BUILDKIT_INLINE_CACHE=1 \
-	--cache-from ${REGISTRY}/auction-api-php-cli:cache-builder \
-	--cache-from ${REGISTRY}/auction-api-php-cli:cache \
-	--tag ${REGISTRY}/auction-api-php-cli:cache \
-	--tag ${REGISTRY}/auction-api-php-cli:${IMAGE_TAG} \
-	--file api/docker/production/php-cli/Dockerfile api
+	docker --log-level=debug build --pull --file=api/docker/production/nginx/Dockerfile --tag=${REGISTRY}/auction-api:${IMAGE_TAG} api
+	docker --log-level=debug build --pull --file=api/docker/production/php-fpm/Dockerfile --tag=${REGISTRY}/auction-api-php-fpm:${IMAGE_TAG} api
+	docker --log-level=debug build --pull --file=api/docker/production/php-cli/Dockerfile --tag=${REGISTRY}/auction-api-php-cli:${IMAGE_TAG} api
 
 try-build:
 	REGISTRY=localhost IMAGE_TAG=0 make build
-
-push-build-cache: push-build-cache-gateway push-build-cache-frontend push-build-cache-api push-build-cache-api-php-fpm push-build-cache-api-php-cli
-
-push-build-cache-gateway:
-	docker push ${REGISTRY}/auction-gateway:cache
-
-push-build-cache-frontend:
-	docker push ${REGISTRY}/auction-frontend:cache-builder
-	docker push ${REGISTRY}/auction-frontend:cache
-
-push-build-cache-api:
-	docker push ${REGISTRY}/auction-api:cache
-
-push-build-cache-api-php-fpm:
-	docker push ${REGISTRY}/auction-api-php-fpm:cache-builder
-	docker push ${REGISTRY}/auction-api-php-fpm:cache
-
-push-build-cache-api-php-cli:
-	docker push ${REGISTRY}/auction-api-php-cli:cache-builder
-	docker push ${REGISTRY}/auction-api-php-cli:cache
 
 push: push-gateway push-frontend push-api
 
