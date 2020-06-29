@@ -48,6 +48,8 @@ make try-testing-init
 make try-testing-e2e
 
 
+========================================================================================================
+
 // Init Jenkins
 
 - git push origin master
@@ -176,5 +178,9 @@ make try-testing-e2e
         port -> 2525
         default Recipients -> myemail@mail.com
 
+=================================================================
 
+Gitlab CI
+
+add all variables in repository
 
