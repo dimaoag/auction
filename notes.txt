@@ -17,13 +17,13 @@ REGISTRY=docker.pkg.github.com/dimaoag/auction IMAGE_TAG=master-1 make push
 
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@IP
 
+apt-get update
+apt-get upgrade
+
 ansible all -m ping -i hosts.yml
 
 make upgrade
 make site
-make upgrade // uncomment
-make site
-make authorize
 make authorize-deploy
 make docker-login
 cd ..
