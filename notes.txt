@@ -183,3 +183,6 @@ make try-testing-e2e
         default Recipients -> myemail@mail.com
 
 ========================================================================
+
+// Docker Swarm
+
