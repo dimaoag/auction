@@ -92,6 +92,7 @@ make try-testing-e2e
 
 // IMAGE_TAG = jenkins-auction-feature/blog-1 -> jenkins-auction-feature/blog-1
 // jenkins-auction-master-42
+// docker.pkg.github.com/dimaoag/auction/auction-api:jenkins-auction-master-8
 
 - add REGISTRY_AUTH global credential -> add credentials
     kind -> username with password
@@ -236,4 +237,11 @@ deploy:
                        / frontend
     gateway ----> [VIP]            (life IP address to 10min)
                        \ frontend
+
+
+docker node ls  // show all managers and workers
+docker service ls // show all services
+docker service ps auction_api-php-fpm // show one service
+
+
 
