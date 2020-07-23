@@ -242,6 +242,7 @@ deploy:
 docker node ls  // show all managers and workers
 docker service ls // show all services
 docker service ps auction_api-php-fpm // show one service
+docker node worker-1 update --availability ["active", "pause", "drain" - relocate all services from thim server] // one value
 
 
 
