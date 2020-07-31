@@ -6,7 +6,7 @@ namespace App\Auth\Test\Unit\Service;
 
 use App\Auth\Service\Tokenizer;
 use DateInterval;
-use \DateTimeImmutable;
+use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
 
 /**

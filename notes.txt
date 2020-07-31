@@ -265,3 +265,9 @@ docker-compose run --rm api-php-cli composer require --dev phpunit/phpunit
 docker-compose run --rm api-php-cli composer remove --dev phpunit/phpunit
 docker-compose run --rm api-php-cli composer require --dev phpunit/phpunit
 
+docker-compose run --rm api-php-cli composer require --dev overtrue/phplint
+docker-compose run --rm api-php-cli composer require ramsey/uuid
+
+docker-compose run --rm api-php-cli composer why guzzlehttp/guzzle  // where is used this package
+
+docker-compose run --rm api-php-cli composer update
