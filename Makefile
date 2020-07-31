@@ -20,6 +20,7 @@ test-e2e:
 	- make cucumber-e2e
 	make cucumber-report
 api-check: api-validate-schema api-lint api-analyze api-test
+frontend-check: frontend-lint frontend-test
 
 docker-up:
 	docker-compose up -d

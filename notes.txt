@@ -251,7 +251,7 @@ docker node rm --force worker-1
 
 =====================================================================================
 
-// Composer
+// Composer update
 
 docker-compose run --rm api-php-cli composer outdated     // show all available new versions
 docker-compose run --rm api-php-cli composer outdated --direct    // only our from composer.json
@@ -271,3 +271,18 @@ docker-compose run --rm api-php-cli composer require ramsey/uuid
 docker-compose run --rm api-php-cli composer why guzzlehttp/guzzle  // where is used this package
 
 docker-compose run --rm api-php-cli composer update
+
+
+
+=====================================================================================
+
+// Yarn update
+
+docker-compose run --rm frontend-node-cli yarn upgrade
+
+docker-compose run --rm frontend-node-cli yarn outdated
+
+docker-compose run --rm frontend-node-cli yarn add -s --dev eslint    // upgrade new major version
+docker-compose run --rm frontend-node-cli yarn remove eslint  // remove package
+
+docker-compose run --rm frontend-node-cli yarn add -s --dev @testing-library/jest-dom @testing-library/react @testing-library/user-event
