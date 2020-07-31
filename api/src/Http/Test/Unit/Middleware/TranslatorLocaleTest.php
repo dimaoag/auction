@@ -14,14 +14,14 @@ use Slim\Psr7\Factory\ServerRequestFactory;
 use Symfony\Component\Translation\Translator;
 
 /**
- * @covers TranslatorLocale
+ * @covers \App\Http\Middleware\TranslatorLocale
  */
 class TranslatorLocaleTest extends TestCase
 {
     public function testDefault(): void
     {
         $translator = $this->createMock(Translator::class);
-        $translator->expects($this->never())->method('setLocale');
+        $translator->expects(self::never())->method('setLocale');
 
         $middleware = new TranslatorLocale($translator);
 
@@ -36,8 +36,8 @@ class TranslatorLocaleTest extends TestCase
     public function testAccepted(): void
     {
         $translator = $this->createMock(Translator::class);
-        $translator->expects($this->once())->method('setLocale')->with(
-            $this->equalTo('ru')
+        $translator->expects(self::once())->method('setLocale')->with(
+            self::equalTo('ru')
         );
 
         $middleware = new TranslatorLocale($translator);
