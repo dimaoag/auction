@@ -258,5 +258,10 @@ docker-compose run --rm api-php-cli composer outdated --direct    // only our fr
 
 docker-compose run --rm api-php-cli composer update --with-dependencies slim/psr7 slim/slim
 
+docker-compose run --rm api-php-cli composer update --with-dependencies "symfony/*"
+docker-compose run --rm api-php-cli composer update --with-dependencies "doctrine/*"
 
+docker-compose run --rm api-php-cli composer require --dev phpunit/phpunit
+docker-compose run --rm api-php-cli composer remove --dev phpunit/phpunit
+docker-compose run --rm api-php-cli composer require --dev phpunit/phpunit
 
