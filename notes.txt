@@ -1,4 +1,8 @@
 
+// For Xdebug
+http://localhost:8000/apiusers?XDEBUG_SESSION_START=PHPSTORM
+
+
 ssh ${HOST} -p ${PORT} 'cd site_${BUILD_NUMBER} && docker-compose run --rm api-php-cli wait-for-it api-postgres:5432 --timeout=20 -- echo "api-postgres is up"'
 ssh ${HOST} -p ${PORT} 'cd site_${BUILD_NUMBER} && docker-compose run --rm api-php-cli php bin/app.php migrations:migrate --no-interaction'
 
