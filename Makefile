@@ -74,6 +74,9 @@ api-lint:
 	docker-compose run --rm api-php-cli composer cs-check
 
 api-analyze:
+	docker-compose run --rm api-php-cli composer psalm -- --no-diff
+
+api-analyze-diff:
 	docker-compose run --rm api-php-cli composer psalm
 
 api-test:
