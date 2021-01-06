@@ -31,9 +31,6 @@ docker-down:
 docker-down-clear:
 	docker-compose down -v --remove-orphans
 
-docker-down-clear-pipeline:
-	docker-compose down -v --remove-orphans --rmi all
-
 docker-pull:
 	docker-compose pull --include-deps
 
@@ -154,9 +151,6 @@ testing-init:
 	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml run --rm testing-api-php-cli php bin/app.php fixtures:load --no-interaction
 
 testing-down-clear:
-	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml down -v --remove-orphans
-
-testing-down-clear-pipeline:
 	COMPOSE_PROJECT_NAME=testing docker-compose -f docker-compose-testing.yml down -v --remove-orphans
 
 testing-build: testing-build-gateway testing-build-testing-api-php-cli testing-build-cucumber

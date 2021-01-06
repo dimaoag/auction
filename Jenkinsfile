@@ -106,7 +106,7 @@ pipeline {
                 }
                 stage("Down") {
                     steps {
-                        sh "make testing-down-clear-pipeline"
+                        sh "make testing-down-clear"
                     }
                 }
             }
@@ -153,8 +153,8 @@ pipeline {
     }
     post {
         always {
-            sh "make docker-down-clear-pipeline || true"
-            sh "make testing-down-clear-pipeline || true"
+            sh "make docker-down-clear || true"
+            sh "make testing-down-clear || true"
             sh "make deploy-clean || true"
         }
         failure {
