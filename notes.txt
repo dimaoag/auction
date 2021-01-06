@@ -261,6 +261,7 @@ docker-compose run --rm api-php-cli composer outdated     // show all available 
 docker-compose run --rm api-php-cli composer outdated --direct    // only our from composer.json
 
 docker-compose run --rm api-php-cli composer update --with-dependencies slim/psr7 slim/slim
+docker-compose run --rm api-php-cli composer require --with-all-dependencies sentry/sdk
 
 docker-compose run --rm api-php-cli composer update --with-dependencies "symfony/*"
 docker-compose run --rm api-php-cli composer update --with-dependencies "doctrine/*"
