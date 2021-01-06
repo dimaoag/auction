@@ -64,7 +64,7 @@ make try-testing-e2e
 
 - create new job -> enter name -> multibranch pipeline -> ok
     Branch sources -> Github
-    Repository HTTPS URL
+    Repository HTTPS URL -> https://github.com/dimaoag/auction
     Add global credential (Jenkins)
         Kind -> Username with password
         username -> dimaoag
@@ -109,7 +109,7 @@ make try-testing-e2e
 
 - add locally PRODUCTION_HOST credential -> add credentials
     kind -> secret text
-    secret -> IP server groundvn.site
+    secret -> IP server groundvn.site (46.101.187.75)
     id -> PRODUCTION_HOST
     description -> PRODUCTION_HOST
 

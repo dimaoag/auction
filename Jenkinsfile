@@ -153,8 +153,8 @@ pipeline {
     }
     post {
         always {
-            sh "make docker-down-clear || true"
-            sh "make testing-down-clear || true"
+            sh "make docker-down-clear-pipeline || true"
+            sh "make testing-down-clear-pipeline || true"
             sh "make deploy-clean || true"
         }
         failure {
