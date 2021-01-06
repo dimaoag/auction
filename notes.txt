@@ -288,6 +288,8 @@ docker-compose run --rm frontend-node-cli yarn upgrade
 docker-compose run --rm frontend-node-cli yarn outdated
 
 docker-compose run --rm frontend-node-cli yarn add -s --dev eslint    // upgrade new major version
+docker-compose run --rm frontend-node-cli yarn add -s react react-dom react-scripts
+
 docker-compose run --rm frontend-node-cli yarn remove eslint  // remove package
 
 docker-compose run --rm frontend-node-cli yarn add -s --dev @testing-library/jest-dom @testing-library/react @testing-library/user-event
