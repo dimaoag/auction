@@ -106,7 +106,7 @@ pipeline {
                 }
                 stage("Down") {
                     steps {
-                        sh "make testing-down-clear"
+                        sh "make testing-down-clear-pipeline"
                     }
                 }
             }
