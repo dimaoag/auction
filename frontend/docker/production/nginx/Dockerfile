@@ -1,4 +1,4 @@
-FROM node:13-alpine as builder
+FROM node:15-alpine as builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN yarn install && yarn cache clean
 COPY ./ ./
 RUN yarn build
 
-FROM nginx:1.17-alpine
+FROM nginx:1.19-alpine
 
 RUN apk add --no-cache curl
 
