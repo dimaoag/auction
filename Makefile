@@ -35,9 +35,6 @@ docker-pull:
 	docker-compose pull --include-deps
 
 docker-build:
-	docker-compose build
-
-docker-build-upgrade:
 	docker-compose build --pull
 
 api-clear:
