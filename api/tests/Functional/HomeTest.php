@@ -15,7 +15,9 @@ class HomeTest extends WebTestCase
 
     public function testSuccess(): void
     {
-        $response = $this->app()->handle(self::json('GET', '/'));
+        $response = $this->app()->handle(
+            self::json('GET', '/')->withHeader('X-Features', '!NEW_HOME')
+        );
 
         self::assertEquals(200, $response->getStatusCode());
         self::assertEquals('application/json', $response->getHeaderLine('Content-Type'));
@@ -24,8 +26,6 @@ class HomeTest extends WebTestCase
 
     public function testNewHome(): void
     {
-        self::markTestIncomplete('Wait for feature flags');
-
         $response = $this->app()->handle(
             self::json('GET', '/')->withHeader('X-Features', 'NEW_HOME')
         );
