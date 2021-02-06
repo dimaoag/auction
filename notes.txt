@@ -298,3 +298,19 @@ docker-compose run --rm cucumber-node-cli yarn upgrade
 docker-compose run --rm cucumber-node-cli yarn outdated
 docker-compose run --rm cucumber-node-cli yarn add -s --dev eslint
 docker-compose run --rm cucumber-node-cli yarn add -s puppeteer
+
+
+=======================================================================================
+// GIT
+git diff  // diff current code with last commit
+git diff HEAD~1 // diff current with last commit minus one
+git diff HEAD~1 HEAD // diff last commit with last minus one
+git diff fe165752 ee3977c0 // diff two commits
+git diff --name-only fe165752 ee3977c0 // list of changed files
+git diff --name-only fe165752 ee3977c0 -- api // list of changed files in folder "api"
+git rev-list HEAD // list of commits
+git rev-list HEAD | tail -n 1 // list of commits
+git rev-list HEAD | tail -n 1 // hash of first commit
+
+docker-compose images // list of active images
+

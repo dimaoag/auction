@@ -2,3 +2,5 @@
 frontend/.idea/
 api/.idea/
 .env
+/.docker-images-before
+/.docker-images-after
