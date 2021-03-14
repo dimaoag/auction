@@ -1,4 +1,5 @@
-init: docker-down-clear \
+init: init-ci frontend-ready
+init-ci: docker-down-clear \
 	api-clear frontend-clear cucumber-clear \
 	docker-pull docker-build docker-up \
 	api-init frontend-init cucumber-init
@@ -13,10 +14,7 @@ test: api-test api-fixtures frontend-test
 test-unit: api-test-unit
 test-functional: api-test-functional api-fixtures
 test-smoke: api-fixtures cucumber-clear cucumber-smoke
-test-e2e:
-	make api-fixtures
-	make cucumber-clear
-	- make cucumber-e2e
+test-e2e: api-fixtures cucumber-clear cucumber-e2e
 
 update-deps: api-composer-update frontend-yarn-upgrade cucumber-yarn-upgrade restart
 
@@ -30,7 +28,7 @@ docker-down-clear:
 	docker-compose down -v --remove-orphans
 
 docker-pull:
-	docker-compose pull --include-deps
+	docker-compose pull
 
 docker-build:
 	docker-compose build --pull
@@ -97,7 +95,7 @@ api-test-functional-coverage:
 frontend-clear:
 	docker run --rm -v ${PWD}/frontend:/app -w /app alpine sh -c 'rm -rf .ready build'
 
-frontend-init: frontend-yarn-install frontend-ready
+frontend-init: frontend-yarn-install
 
 frontend-yarn-install:
 	docker-compose run --rm frontend-node-cli yarn install
