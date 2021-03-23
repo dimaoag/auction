@@ -4,8 +4,8 @@ import './App.css'
 import { FeaturesProvider } from '../FeatureToggle'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from '../Home'
-import { NotFound } from '../Error'
 import Join from '../Join'
+import { NotFound } from '../Error'
 
 function App({ features }) {
   return (
