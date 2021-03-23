@@ -1,12 +1,12 @@
 <?php
 
+use App\FeatureToggle\FeatureFlagTwigExtension;
 use App\Frontend\FrontendUrlTwigExtension;
 use Psr\Container\ContainerInterface;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Extension\ExtensionInterface;
 use Twig\Loader\FilesystemLoader;
-use App\FeatureToggle\FeatureFlagTwigExtension;
 
 return [
     Environment::class => function (ContainerInterface $container): Environment {

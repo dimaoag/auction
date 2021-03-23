@@ -15,6 +15,7 @@ if (getenv('SENTRY_DSN')) {
     Sentry\init(['dsn' => getenv('SENTRY_DSN')]);
 }
 
+/** @var ContainerInterface $container */
 $container = require __DIR__ . '/../config/container.php';
 
 $cli = new Application('Console');
@@ -29,12 +30,9 @@ if (getenv('SENTRY_DSN')) {
  */
 $commands = $container->get('config')['console']['commands'];
 
-/** @var EntityManagerInterface $entityManager */
 $entityManager = $container->get(EntityManagerInterface::class);
 
 $cli->getHelperSet()->set(new EntityManagerHelper($entityManager), 'em');
-
-//Doctrine\Migrations\Tools\Console\ConsoleRunner::addCommands($cli);
 
 foreach ($commands as $name) {
     /** @var Command $command */

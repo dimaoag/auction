@@ -21,7 +21,7 @@ class TranslatorLocaleTest extends TestCase
     public function testDefault(): void
     {
         $translator = $this->createMock(Translator::class);
-        $translator->expects(self::never())->method('setLocale');
+        $translator->expects($this->never())->method('setLocale');
 
         $middleware = new TranslatorLocale($translator);
 

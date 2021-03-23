@@ -9,7 +9,7 @@ use Slim\Handlers\ErrorHandler;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
- *  * TODO: Remove $logger after pull request
+ * TODO: Remove $logger after pull request
  * @property LoggerInterface $logger
  */
 class LogErrorHandler extends ErrorHandler

@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\Console\FixturesLoadCommand;
-use App\Console\MailerCheckCommand;
 use Doctrine\Migrations;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Console\Command\SchemaTool;
@@ -27,7 +26,6 @@ return [
         'console' => [
             'commands' => [
                 FixturesLoadCommand::class,
-                MailerCheckCommand::class,
 
                 SchemaTool\DropCommand::class,
 

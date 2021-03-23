@@ -10,8 +10,12 @@ use DomainException;
 
 class UserRepository
 {
-    private EntityManagerInterface $em;
+    /**
+     * @var EntityRepository
+     * @psalm-var EntityRepository<User>
+     */
     private EntityRepository $repo;
+    private EntityManagerInterface $em;
 
     /**
      * @param EntityManagerInterface $em
@@ -38,7 +42,7 @@ class UserRepository
         return $this->repo->createQueryBuilder('t')
                 ->select('COUNT(t.id)')
                 ->innerJoin('t.networks', 'n')
-                ->andWhere('n.network = :name and n.identity = :identity')
+                ->andWhere('n.network.name = :name and n.network.identity = :identity')
                 ->setParameter(':name', $network->getName())
                 ->setParameter(':identity', $network->getIdentity())
                 ->getQuery()->getSingleScalarResult() > 0;
@@ -51,7 +55,6 @@ class UserRepository
      */
     public function findByJoinConfirmToken(string $token): ?User
     {
-        /** @psalm-var User|null */
         return $this->repo->findOneBy(['joinConfirmToken.value' => $token]);
     }
 
@@ -62,7 +65,6 @@ class UserRepository
      */
     public function findByPasswordResetToken(string $token): ?User
     {
-        /** @psalm-var User|null */
         return $this->repo->findOneBy(['passwordResetToken.value' => $token]);
     }
 
@@ -73,7 +75,6 @@ class UserRepository
      */
     public function findByNewEmailToken(string $token): ?User
     {
-        /** @psalm-var User|null */
         return $this->repo->findOneBy(['newEmailToken.value' => $token]);
     }
 

@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\FeatureToggle\Test\Unit;
 
+use App\FeatureToggle\Features;
 use App\FeatureToggle\FeaturesContext;
 use App\FeatureToggle\FeaturesMonologProcessor;
 use PHPUnit\Framework\TestCase;
 
-class FeaturesMonologProcessorTest extends TestCase
+class FeatureMonologProcessorTest extends TestCase
 {
     public function testProcess(): void
     {

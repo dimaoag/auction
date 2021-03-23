@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use Middlewares\ContentLanguage;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Translation\Loader\PhpFileLoader;
@@ -31,8 +29,6 @@ return [
     },
 
     ContentLanguage::class => function (ContainerInterface $container): ContentLanguage {
-        /** @var Translator $translator */
-        $translator = $container->get(Translator::class);
         /**
          * @psalm-suppress MixedArrayAccess
          * @psalm-var array{allowed:string[]} $config

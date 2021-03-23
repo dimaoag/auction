@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Symfony\Component\Validator\Validation;
 use Psr\Container\ContainerInterface;
+use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -14,7 +14,6 @@ return [
         AnnotationRegistry::registerLoader('class_exists');
 
         $translator = $container->get(TranslatorInterface::class);
-
 
         return Validation::createValidatorBuilder()
             ->enableAnnotationMapping()

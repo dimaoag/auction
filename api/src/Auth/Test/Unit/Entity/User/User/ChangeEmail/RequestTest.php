@@ -84,7 +84,7 @@ class RequestTest extends TestCase
         $user = (new UserBuilder())->build();
 
         $this->expectExceptionMessage('User is not active.');
-        $user->requestPasswordReset($token, $now);
+        $user->requestEmailChanging($token, $now, new Email('temp-email@app.test'));
     }
 
     private function createToken(DateTimeImmutable $date): Token

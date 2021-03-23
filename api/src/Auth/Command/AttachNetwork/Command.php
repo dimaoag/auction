@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\User\Command\AttachNetwork;
+namespace App\Auth\Command\AttachNetwork;
 
 class Command
 {

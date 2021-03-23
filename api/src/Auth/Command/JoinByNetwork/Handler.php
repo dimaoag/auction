@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\User\Command\JoinByNetwork;
+namespace App\Auth\Command\JoinByNetwork;
 
 use App\Auth\Entity\User\Email;
 use App\Auth\Entity\User\Id;
