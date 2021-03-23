@@ -84,7 +84,6 @@ services:
                 max_attempts: 5
                 window: 120s
 
-
     api-postgres:
         image: postgres:13.1-alpine
         environment:

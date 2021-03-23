@@ -45,5 +45,3 @@ Feature: View join page
     And I check "agree" checkbox
     And I click submit button
     Then I see validation error "This value is too short"
-
-

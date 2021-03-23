@@ -20,5 +20,3 @@ Then('I see validation error {string}', async function (message) {
   const errors = await this.page.$$eval('.input-error', els => els.map(el => el.innerText))
   expect(errors.toString()).to.include(message)
 })
-
-

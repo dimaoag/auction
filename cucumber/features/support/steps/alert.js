@@ -9,7 +9,6 @@ Then('I see success {string}', async function (message) {
 
 Then('I see error {string}', async function (message) {
   await this.page.waitForSelector('[data-testid="alert-error"]')
-  const text = this.page.$eval('[data-testid="alert-error"]', el => el.innerText)
+  const text = await this.page.$eval('[data-testid="alert-error"]', el => el.innerText)
   expect(text).to.include(message)
 })
-
