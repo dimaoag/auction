@@ -5,7 +5,7 @@ import JoinForm from './JoinForm'
 test('allows the user to join successfully', async () => {
   const fetch = jest.spyOn(global, 'fetch').mockResolvedValue({
     ok: true,
-    status: 201
+    status: 201,
   })
 
   render(<JoinForm />)
