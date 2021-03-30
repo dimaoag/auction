@@ -131,6 +131,9 @@ frontend-pretty:
 frontend-test:
 	docker-compose run --rm frontend-node-cli yarn test --watchAll=false
 
+frontend-local-test:
+	cd frontend && yarn test --watchAll=false
+
 frontend-test-watch:
 	docker-compose run --rm frontend-node-cli yarn test
 
