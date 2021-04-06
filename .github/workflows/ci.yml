@@ -117,12 +117,14 @@ jobs:
 
             -   name: Push
                 run: make push
+                if: ${{ github.ref == 'refs/heads/master' }}
 
             -   name: Install SSH key
                 uses: shimataro/ssh-key-action@v2
                 with:
                     key: ${{ secrets.PRODUCTION_KEY }}
                     known_hosts: ${{ secrets.PRODUCTION_HOST }}
+                if: ${{ github.ref == 'refs/heads/master' }}
 
             -   name: Set private key
                 uses: webfactory/ssh-agent@v0.4.0
@@ -142,3 +144,4 @@ jobs:
                     API_MAILER_PASSWORD: ${{ secrets.API_MAILER_PASSWORD }}
                     API_MAILER_FROM_EMAIL: ${{ secrets.API_MAILER_FROM_EMAIL }}
                     SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+                if: ${{ github.ref == 'refs/heads/master' }}
