@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function InputLabel({ label, htmlFor = null, ...attrs }) {
+function InputLabel({ label, htmlFor = null, ...rest }) {
   return (
-    <label className="input-label" htmlFor={htmlFor} {...attrs}>
+    <label className="input-label" htmlFor={htmlFor} {...rest}>
       {label}
     </label>
   )
