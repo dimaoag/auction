@@ -35,7 +35,7 @@ pipeline {
         stage("Init") {
             steps {
                 sh "touch .docker-images-before"
-                sh "make init"
+                sh "make init-ci"
                 sh "docker-compose images > .docker-images-after"
                 script {
                     DOCKER_DIFF = sh(
