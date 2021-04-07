@@ -266,6 +266,10 @@ docker-compose run --rm api-php-cli composer require --with-all-dependencies sen
 docker-compose run --rm api-php-cli composer update --with-dependencies "symfony/*"
 docker-compose run --rm api-php-cli composer update --with-dependencies "doctrine/*"
 
+docker-compose run --rm api-php-cli composer why psr/container //which packages blocks update on new version
+docker-compose run --rm api-php-cli composer why-not psr/container 2 // the same
+docker-compose run --rm api-php-cli composer why-not php 8
+
 docker-compose run --rm api-php-cli composer require --dev phpunit/phpunit
 docker-compose run --rm api-php-cli composer remove --dev phpunit/phpunit
 docker-compose run --rm api-php-cli composer require --dev phpunit/phpunit

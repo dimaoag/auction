@@ -23,9 +23,6 @@ class PasswordHasher
         if ($hash === null) {
             throw new RuntimeException('Invalid hash algorithm.');
         }
-        if ($hash === false) {
-            throw new RuntimeException('Unable to generate hash.');
-        }
         return $hash;
     }
 
