@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Test\Unit;
 
 use App\Http\JsonResponse;
+use JsonException;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -21,10 +22,9 @@ class JsonResponseTest extends TestCase
 
     /**
      * @dataProvider getCases
-     * @param mixed $source
-     * @param mixed $expect
+     * @throws JsonException
      */
-    public function testResponse($source, $expect): void
+    public function testResponse(mixed $source, mixed $expect): void
     {
         $response = new JsonResponse($source);
 
@@ -34,8 +34,7 @@ class JsonResponseTest extends TestCase
     }
 
     /**
-     * @return iterable
-     * @psalm-return iterable<array-key, array<array-key, mixed>>
+     * @return iterable<array-key, array<array-key, mixed>>
      */
     public function getCases(): iterable
     {
