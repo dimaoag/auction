@@ -1,5 +1,7 @@
 {
     "license": "BSD-3-Clause",
+    "name": "auction/auction",
+    "description": "",
     "config": {
         "process-timeout": 0,
         "sort-packages": true
