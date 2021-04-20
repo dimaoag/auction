@@ -26,8 +26,7 @@ class MailerCheckCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setName('mailer:check')
-        ;
+            ->setName('mailer:check');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
