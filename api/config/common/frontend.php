@@ -6,7 +6,7 @@ use Psr\Container\ContainerInterface;
 use App\Frontend\FrontendUrlGenerator;
 
 return [
-    FrontendUrlGenerator::class => function (ContainerInterface $container): FrontendUrlGenerator {
+    FrontendUrlGenerator::class => static function (ContainerInterface $container): FrontendUrlGenerator {
         /**
          * @psalm-suppress MixedArrayAccess
          * @var array{url:string} $config

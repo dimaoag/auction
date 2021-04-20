@@ -11,7 +11,7 @@ use App\Frontend\FrontendUrlTwigExtension;
 use App\FeatureToggle\FeatureFlagTwigExtension;
 
 return [
-    Environment::class => function (ContainerInterface $container): Environment {
+    Environment::class => static function (ContainerInterface $container): Environment {
         /**
          * @psalm-suppress MixedArrayAccess
          * @var array{

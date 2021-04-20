@@ -15,7 +15,7 @@ use Doctrine\Common\Cache\FilesystemCache;
 use Doctrine\ORM\Mapping\UnderscoreNamingStrategy;
 
 return [
-    EntityManagerInterface::class => function (ContainerInterface $container): EntityManagerInterface {
+    EntityManagerInterface::class => static function (ContainerInterface $container): EntityManagerInterface {
         /**
          * @psalm-suppress MixedArrayAccess
          * @var array{

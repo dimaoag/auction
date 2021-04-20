@@ -9,7 +9,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 return [
-    ValidatorInterface::class => function (ContainerInterface $container): ValidatorInterface {
+    ValidatorInterface::class => static function (ContainerInterface $container): ValidatorInterface {
         /** @psalm-suppress DeprecatedMethod */
         AnnotationRegistry::registerLoader('class_exists');
 
