@@ -12,7 +12,7 @@ use App\Auth\Entity\User\Token;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 
-class UserJoinConfirmFixture extends AbstractFixture
+final class UserJoinConfirmFixture extends AbstractFixture
 {
     private const PASSWORD_HASH = '$2y$12$qwnND33o8DGWvFoepotSju7eTAQ6gzLD/zy6W8NCVtiHPbkybz.w6';
 

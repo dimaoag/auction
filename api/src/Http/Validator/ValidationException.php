@@ -8,7 +8,7 @@ use Throwable;
 use LogicException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
-class ValidationException extends LogicException
+final class ValidationException extends LogicException
 {
     private ConstraintViolationListInterface $violations;
 

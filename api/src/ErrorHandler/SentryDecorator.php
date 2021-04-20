@@ -11,7 +11,7 @@ use Slim\Interfaces\ErrorHandlerInterface;
 
 use Psr\Http\Message\ServerRequestInterface;
 
-class SentryDecorator implements ErrorHandlerInterface
+final class SentryDecorator implements ErrorHandlerInterface
 {
     private ErrorHandlerInterface $next;
 

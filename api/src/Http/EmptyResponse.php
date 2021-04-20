@@ -7,7 +7,7 @@ namespace App\Http;
 use Slim\Psr7\Response;
 use Slim\Psr7\Factory\StreamFactory;
 
-class EmptyResponse extends Response
+final class EmptyResponse extends Response
 {
     public function __construct(int $status = 204)
     {

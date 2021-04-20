@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @internal
  */
-class IdTest extends TestCase
+final class IdTest extends TestCase
 {
     public function testSuccess(): void
     {

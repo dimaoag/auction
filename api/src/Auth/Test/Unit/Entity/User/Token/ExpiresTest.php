@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @internal
  */
-class ExpiresTest extends TestCase
+final class ExpiresTest extends TestCase
 {
     public function testNot(): void
     {

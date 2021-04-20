@@ -13,7 +13,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class DomainExceptionHandler implements MiddlewareInterface
+final class DomainExceptionHandler implements MiddlewareInterface
 {
     private LoggerInterface $logger;
     private TranslatorInterface $translator;

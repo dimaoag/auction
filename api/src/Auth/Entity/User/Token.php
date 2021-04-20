@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Embeddable
  */
-class Token
+final class Token
 {
     /**
      * @var string

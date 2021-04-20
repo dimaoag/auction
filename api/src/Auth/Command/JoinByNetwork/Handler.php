@@ -11,7 +11,7 @@ use App\Auth\Entity\User\Email;
 use App\Auth\Entity\User\Network;
 use App\Auth\Entity\User\UserRepository;
 
-class Handler
+final class Handler
 {
     private UserRepository $users;
     private Flusher $flusher;

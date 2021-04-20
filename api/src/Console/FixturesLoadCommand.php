@@ -12,7 +12,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 
-class FixturesLoadCommand extends Command
+final class FixturesLoadCommand extends Command
 {
     private EntityManagerInterface $em;
     /**

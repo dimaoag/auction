@@ -10,7 +10,7 @@ use App\Auth\Test\Builder\UserBuilder;
 /**
  * @internal
  */
-class RemoveTest extends TestCase
+final class RemoveTest extends TestCase
 {
     /**
      * @doesNotPerformAssertions

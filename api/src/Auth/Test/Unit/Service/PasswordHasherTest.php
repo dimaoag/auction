@@ -13,7 +13,7 @@ use App\Auth\Service\PasswordHasher;
  *
  * @internal
  */
-class PasswordHasherTest extends TestCase
+final class PasswordHasherTest extends TestCase
 {
     public function testHash(): void
     {

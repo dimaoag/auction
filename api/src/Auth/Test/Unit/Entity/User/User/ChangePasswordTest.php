@@ -13,7 +13,7 @@ use App\Auth\Test\Builder\UserBuilder;
  *
  * @internal
  */
-class ChangePasswordTest extends TestCase
+final class ChangePasswordTest extends TestCase
 {
     public function testSuccess(): void
     {

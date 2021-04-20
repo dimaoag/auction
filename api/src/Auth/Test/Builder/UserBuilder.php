@@ -12,7 +12,7 @@ use App\Auth\Entity\User\Email;
 use App\Auth\Entity\User\Token;
 use App\Auth\Entity\User\Network;
 
-class UserBuilder
+final class UserBuilder
 {
     private Id $id;
     private Email $email;

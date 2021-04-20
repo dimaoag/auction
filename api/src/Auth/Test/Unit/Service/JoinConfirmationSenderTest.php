@@ -20,7 +20,7 @@ use App\Auth\Service\JoinConfirmationSender;
  *
  * @internal
  */
-class JoinConfirmationSenderTest extends TestCase
+final class JoinConfirmationSenderTest extends TestCase
 {
     public function testSuccess(): void
     {

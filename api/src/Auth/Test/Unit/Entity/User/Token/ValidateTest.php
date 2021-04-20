@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @internal
  */
-class ValidateTest extends TestCase
+final class ValidateTest extends TestCase
 {
     /**
      * @doesNotPerformAssertions

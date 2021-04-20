@@ -8,7 +8,7 @@ use Slim\Psr7\Headers;
 use Slim\Psr7\Response;
 use Slim\Psr7\Factory\StreamFactory;
 
-class JsonResponse extends Response
+final class JsonResponse extends Response
 {
     public function __construct(mixed $data, int $status = 200)
     {

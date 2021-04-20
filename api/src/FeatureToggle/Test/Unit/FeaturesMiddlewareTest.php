@@ -18,7 +18,7 @@ use Psr\Http\Server\RequestHandlerInterface;
  *
  * @internal
  */
-class FeaturesMiddlewareTest extends TestCase
+final class FeaturesMiddlewareTest extends TestCase
 {
     public function testEmpty(): void
     {

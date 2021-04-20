@@ -12,7 +12,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 use App\Auth\Command\JoinByEmail\Request\Command;
 use App\Auth\Command\JoinByEmail\Request\Handler;
 
-class RequestAction implements RequestHandlerInterface
+final class RequestAction implements RequestHandlerInterface
 {
     private Handler $handler;
     private Validator $validator;

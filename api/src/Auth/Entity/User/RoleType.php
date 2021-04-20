@@ -7,7 +7,7 @@ namespace App\Auth\Entity\User;
 use Doctrine\DBAL\Types\StringType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 
-class RoleType extends StringType
+final class RoleType extends StringType
 {
     public const NAME = 'auth_user_role';
 

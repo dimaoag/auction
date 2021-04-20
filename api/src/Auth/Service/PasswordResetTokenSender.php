@@ -11,7 +11,7 @@ use Twig\Environment;
 use App\Auth\Entity\User\Email;
 use App\Auth\Entity\User\Token;
 
-class PasswordResetTokenSender
+final class PasswordResetTokenSender
 {
     private Swift_Mailer $mailer;
     private Environment $twig;

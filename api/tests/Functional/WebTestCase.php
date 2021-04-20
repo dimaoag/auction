@@ -18,7 +18,7 @@ use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 /**
  * @internal
  */
-class WebTestCase extends TestCase
+abstract class WebTestCase extends TestCase
 {
     private ?App $app = null;
     private ?MailerClient $mailer = null;

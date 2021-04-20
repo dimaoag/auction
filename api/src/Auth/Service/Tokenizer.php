@@ -9,7 +9,7 @@ use Ramsey\Uuid\Uuid;
 use DateTimeImmutable;
 use App\Auth\Entity\User\Token;
 
-class Tokenizer
+final class Tokenizer
 {
     private DateInterval $interval;
 

@@ -7,7 +7,7 @@ namespace App\FeatureToggle;
 use Twig\TwigFunction;
 use Twig\Extension\AbstractExtension;
 
-class FeatureFlagTwigExtension extends AbstractExtension
+final class FeatureFlagTwigExtension extends AbstractExtension
 {
     private FeatureFlag $flag;
 

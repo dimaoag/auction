@@ -14,7 +14,7 @@ use App\Auth\Test\Builder\UserBuilder;
  *
  * @internal
  */
-class ConfirmTest extends TestCase
+final class ConfirmTest extends TestCase
 {
     public function testSuccess(): void
     {

@@ -13,7 +13,7 @@ use App\Auth\Entity\User\Token;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 
-class RequestFixture extends AbstractFixture
+final class RequestFixture extends AbstractFixture
 {
     public function load(ObjectManager $manager): void
     {

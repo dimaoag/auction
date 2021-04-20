@@ -13,7 +13,7 @@ use App\Auth\Entity\User\Status;
  *
  * @internal
  */
-class StatusTest extends TestCase
+final class StatusTest extends TestCase
 {
     public function testSuccess(): void
     {

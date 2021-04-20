@@ -19,7 +19,7 @@ use Psr\Http\Server\RequestHandlerInterface;
  *
  * @internal
  */
-class ClearEmptyInputTest extends TestCase
+final class ClearEmptyInputTest extends TestCase
 {
     public function testParsedBody(): void
     {

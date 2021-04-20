@@ -13,7 +13,7 @@ use App\Auth\Test\Builder\UserBuilder;
  *
  * @internal
  */
-class AttachNetworkTest extends TestCase
+final class AttachNetworkTest extends TestCase
 {
     public function testSuccess(): void
     {

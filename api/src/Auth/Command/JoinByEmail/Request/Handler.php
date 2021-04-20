@@ -15,7 +15,7 @@ use App\Auth\Service\PasswordHasher;
 use App\Auth\Entity\User\UserRepository;
 use App\Auth\Service\JoinConfirmationSender;
 
-class Handler
+final class Handler
 {
     private UserRepository $users;
     private PasswordHasher $hasher;

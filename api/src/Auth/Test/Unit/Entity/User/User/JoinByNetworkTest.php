@@ -16,7 +16,7 @@ use App\Auth\Entity\User\Network;
  *
  * @internal
  */
-class JoinByNetworkTest extends TestCase
+final class JoinByNetworkTest extends TestCase
 {
     public function testSuccess(): void
     {

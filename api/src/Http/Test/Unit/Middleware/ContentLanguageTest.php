@@ -17,7 +17,7 @@ use Psr\Http\Server\RequestHandlerInterface;
  *
  * @internal
  */
-class ContentLanguageTest extends TestCase
+final class ContentLanguageTest extends TestCase
 {
     public function testDefault(): void
     {

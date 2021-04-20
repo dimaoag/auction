@@ -15,7 +15,7 @@ use App\FeatureToggle\FeatureFlagTwigExtension;
  *
  * @internal
  */
-class FeatureFlagTwigExtensionTest extends TestCase
+final class FeatureFlagTwigExtensionTest extends TestCase
 {
     public function testActive(): void
     {

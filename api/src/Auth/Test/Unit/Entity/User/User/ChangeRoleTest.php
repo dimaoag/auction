@@ -11,7 +11,7 @@ use App\Auth\Test\Builder\UserBuilder;
 /**
  * @internal
  */
-class ChangeRoleTest extends TestCase
+final class ChangeRoleTest extends TestCase
 {
     public function testSuccess(): void
     {

@@ -11,7 +11,7 @@ use App\FeatureToggle\FeaturesMonologProcessor;
 /**
  * @internal
  */
-class FeatureMonologProcessorTest extends TestCase
+final class FeatureMonologProcessorTest extends TestCase
 {
     public function testProcess(): void
     {

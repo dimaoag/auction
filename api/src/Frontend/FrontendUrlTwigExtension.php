@@ -7,7 +7,7 @@ namespace App\Frontend;
 use Twig\TwigFunction;
 use Twig\Extension\AbstractExtension;
 
-class FrontendUrlTwigExtension extends AbstractExtension
+final class FrontendUrlTwigExtension extends AbstractExtension
 {
     private FrontendUrlGenerator $url;
 

@@ -11,7 +11,7 @@ use App\Auth\Service\Tokenizer;
 use App\Auth\Entity\User\UserRepository;
 use App\Auth\Service\PasswordResetTokenSender;
 
-class Handler
+final class Handler
 {
     private UserRepository $users;
     private Tokenizer $tokenizer;
