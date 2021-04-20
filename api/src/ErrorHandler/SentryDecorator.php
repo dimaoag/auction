@@ -8,7 +8,6 @@ use Throwable;
 use function Sentry\captureException;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Interfaces\ErrorHandlerInterface;
-
 use Psr\Http\Message\ServerRequestInterface;
 
 final class SentryDecorator implements ErrorHandlerInterface
