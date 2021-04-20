@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Auth\Test\Unit\Entity\User;
 
+use Ramsey\Uuid\Uuid;
 use App\Auth\Entity\User\Id;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Uuid;
 
 /**
  * @covers \App\Auth\Entity\User\Id

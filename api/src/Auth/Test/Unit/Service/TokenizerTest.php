@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Auth\Test\Unit\Service;
 
-use App\Auth\Service\Tokenizer;
 use DateInterval;
+use App\Auth\Service\Tokenizer;
 use PHPUnit\Framework\TestCase;
 
 /**

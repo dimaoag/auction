@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace App\FeatureToggle\Test\Unit;
 
 use App\FeatureToggle\Features;
-use App\FeatureToggle\FeaturesMiddleware;
-use App\FeatureToggle\FeatureSwitch;
 use PHPUnit\Framework\TestCase;
+use App\FeatureToggle\FeatureSwitch;
+use Slim\Psr7\Factory\ResponseFactory;
 use Psr\Http\Message\ResponseInterface;
+use App\FeatureToggle\FeaturesMiddleware;
+use Slim\Psr7\Factory\ServerRequestFactory;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Slim\Psr7\Factory\ResponseFactory;
-use Slim\Psr7\Factory\ServerRequestFactory;
 
 /**
  * @covers \App\FeatureToggle\FeaturesMiddleware

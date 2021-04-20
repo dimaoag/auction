@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Test\Unit\Middleware;
 
-use App\Http\Middleware\DomainExceptionHandler;
 use DomainException;
-use PHPUnit\Framework\TestCase;
-use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Log\LoggerInterface;
+use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Factory\ResponseFactory;
 use Slim\Psr7\Factory\ServerRequestFactory;
+use Psr\Http\Server\RequestHandlerInterface;
+use App\Http\Middleware\DomainExceptionHandler;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**

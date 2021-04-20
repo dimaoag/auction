@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use App\FeatureToggle\FeaturesMiddleware;
+use Slim\App;
 use App\Http\Middleware;
 use Middlewares\ContentLanguage;
-use Slim\App;
 use Slim\Middleware\ErrorMiddleware;
+use App\FeatureToggle\FeaturesMiddleware;
 
 return static function (App $app): void {
     $app->add(Middleware\DomainExceptionHandler::class);

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Frontend\Test\Unit;
 
-use App\Frontend\FrontendUrlGenerator;
 use PHPUnit\Framework\TestCase;
+use App\Frontend\FrontendUrlGenerator;
 
 /**
  * @covers \App\Frontend\FrontendUrlGenerator

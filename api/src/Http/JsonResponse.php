@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http;
 
-use Slim\Psr7\Factory\StreamFactory;
 use Slim\Psr7\Headers;
 use Slim\Psr7\Response;
+use Slim\Psr7\Factory\StreamFactory;
 
 class JsonResponse extends Response
 {

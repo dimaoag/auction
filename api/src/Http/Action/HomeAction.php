@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Http\Action;
 
-use App\FeatureToggle\FeatureFlag;
+use stdClass;
 use App\Http\JsonResponse;
+use App\FeatureToggle\FeatureFlag;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use stdClass;
 
 class HomeAction implements RequestHandlerInterface
 {

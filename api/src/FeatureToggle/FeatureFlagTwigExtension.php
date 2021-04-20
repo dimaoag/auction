@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\FeatureToggle;
 
-use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
+use Twig\Extension\AbstractExtension;
 
 class FeatureFlagTwigExtension extends AbstractExtension
 {

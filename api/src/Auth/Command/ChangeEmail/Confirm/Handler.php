@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Auth\Command\ChangeEmail\Confirm;
 
-use App\Auth\Entity\User\UserRepository;
 use App\Flusher;
-use DateTimeImmutable;
 use DomainException;
+use DateTimeImmutable;
+use App\Auth\Entity\User\UserRepository;
 
 class Handler
 {

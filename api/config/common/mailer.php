@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Finesse\SwiftMailerDefaultsPlugin\SwiftMailerDefaultsPlugin;
 use Psr\Container\ContainerInterface;
+use Finesse\SwiftMailerDefaultsPlugin\SwiftMailerDefaultsPlugin;
 
 return [
     Swift_Mailer::class => static function (ContainerInterface $container) {

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Auth\Test\Unit\Entity\User\User\ChangeEmail;
 
+use Ramsey\Uuid\Uuid;
+use DateTimeImmutable;
 use App\Auth\Entity\User\Email;
 use App\Auth\Entity\User\Token;
-use App\Auth\Test\Builder\UserBuilder;
-use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Uuid;
+use App\Auth\Test\Builder\UserBuilder;
 
 /**
  * @covers \App\Auth\Entity\User\User

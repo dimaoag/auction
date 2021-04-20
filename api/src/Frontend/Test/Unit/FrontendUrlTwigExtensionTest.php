@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Frontend\Test\Unit;
 
-use App\Frontend\FrontendUrlGenerator;
-use App\Frontend\FrontendUrlTwigExtension;
-use PHPUnit\Framework\TestCase;
 use Twig\Environment;
 use Twig\Loader\ArrayLoader;
+use PHPUnit\Framework\TestCase;
+use App\Frontend\FrontendUrlGenerator;
+use App\Frontend\FrontendUrlTwigExtension;
 
 /**
  * @covers \App\Frontend\FrontendUrlTwigExtension

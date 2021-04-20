@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use App\Console\FixturesLoadCommand;
 use Doctrine\Migrations;
+use App\Console\FixturesLoadCommand;
+use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Console\Command\SchemaTool;
-use Psr\Container\ContainerInterface;
 
 return [
     FixturesLoadCommand::class => static function (ContainerInterface $container) {

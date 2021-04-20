@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Auth\Entity\User;
 
-use DateTimeImmutable;
-use Doctrine\ORM\Mapping as ORM;
 use DomainException;
+use DateTimeImmutable;
 use Webmozart\Assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Embeddable

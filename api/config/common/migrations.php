@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 use Doctrine\Migrations;
+use Psr\Container\ContainerInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Migrations\DependencyFactory;
 use Doctrine\Migrations\Tools\Console\Command;
-use Doctrine\ORM\EntityManagerInterface;
-use Psr\Container\ContainerInterface;
 
 return [
     DependencyFactory::class => static function (ContainerInterface $container) {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Auth\Test\Unit\Service;
 
-use App\Auth\Service\PasswordHasher;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+use App\Auth\Service\PasswordHasher;
 
 /**
  * @covers \App\Auth\Service\PasswordHasher

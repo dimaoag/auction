@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Auth\Command\ChangeEmail\Request;
 
-use App\Auth\Entity\User\Email;
-use App\Auth\Entity\User\Id;
-use App\Auth\Entity\User\UserRepository;
-use App\Auth\Service\Tokenizer;
-use App\Auth\Service\NewEmailConfirmTokenSender;
 use App\Flusher;
-use DateTimeImmutable;
 use DomainException;
+use DateTimeImmutable;
+use App\Auth\Entity\User\Id;
+use App\Auth\Entity\User\Email;
+use App\Auth\Service\Tokenizer;
+use App\Auth\Entity\User\UserRepository;
+use App\Auth\Service\NewEmailConfirmTokenSender;
 
 class Handler
 {

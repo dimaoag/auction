@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Auth\Test\Unit\Entity\User\Token;
 
-use App\Auth\Entity\User\Token;
+use Ramsey\Uuid\Uuid;
 use DateTimeImmutable;
 use InvalidArgumentException;
+use App\Auth\Entity\User\Token;
 use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Uuid;
 
 /**
  * @covers \App\Auth\Entity\User\Token

@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Test\Functional;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
-use Doctrine\Common\DataFixtures\Loader;
-use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Doctrine\ORM\EntityManagerInterface;
+use Slim\App;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Slim\App;
+use Doctrine\Common\DataFixtures\Loader;
+use Doctrine\ORM\EntityManagerInterface;
 use Slim\Psr7\Factory\ServerRequestFactory;
+use Psr\Http\Message\ServerRequestInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\Purger\ORMPurger;
+use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 
 class WebTestCase extends TestCase
 {

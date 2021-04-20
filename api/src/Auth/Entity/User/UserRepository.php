@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Auth\Entity\User;
 
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityRepository;
 use DomainException;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 class UserRepository
 {

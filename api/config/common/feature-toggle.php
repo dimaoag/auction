@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use App\FeatureToggle\FeatureFlag;
 use App\FeatureToggle\Features;
-use App\FeatureToggle\FeaturesContext;
+use App\FeatureToggle\FeatureFlag;
 use App\FeatureToggle\FeatureSwitch;
 use Psr\Container\ContainerInterface;
+use App\FeatureToggle\FeaturesContext;
 
 return [
     FeatureFlag::class => DI\get(Features::class),

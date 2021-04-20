@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Frontend\FrontendUrlGenerator;
 use Psr\Container\ContainerInterface;
+use App\Frontend\FrontendUrlGenerator;
 
 return [
     FrontendUrlGenerator::class => function (ContainerInterface $container): FrontendUrlGenerator {

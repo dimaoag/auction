@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App\Auth\Test\Unit\Service;
 
-use App\Auth\Entity\User\Email;
-use App\Auth\Entity\User\Token;
-use App\Auth\Service\PasswordResetTokenSender;
-use DateTimeImmutable;
-use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Uuid;
-use RuntimeException;
 use Swift_Mailer;
 use Swift_Message;
+use Ramsey\Uuid\Uuid;
+use RuntimeException;
 use Twig\Environment;
+use DateTimeImmutable;
+use App\Auth\Entity\User\Email;
+use App\Auth\Entity\User\Token;
+use PHPUnit\Framework\TestCase;
+use App\Auth\Service\PasswordResetTokenSender;
 
 /**
  * @covers \App\Auth\Service\PasswordResetTokenSender

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Auth\Service;
 
-use App\Auth\Entity\User\Email;
-use App\Auth\Entity\User\Token;
-use RuntimeException;
 use Swift_Mailer;
 use Swift_Message;
+use RuntimeException;
 use Twig\Environment;
+use App\Auth\Entity\User\Email;
+use App\Auth\Entity\User\Token;
 
 class PasswordResetTokenSender
 {

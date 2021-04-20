@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Auth\Test\Unit\Entity\User;
 
-use App\Auth\Entity\User\Email;
 use InvalidArgumentException;
+use App\Auth\Entity\User\Email;
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Auth\Test\Unit\Entity\User\User\JoinByEmail;
 
+use Ramsey\Uuid\Uuid;
 use App\Auth\Entity\User\Token;
 use PHPUnit\Framework\TestCase;
 use App\Auth\Test\Builder\UserBuilder;
-use Ramsey\Uuid\Uuid;
 
 /**
  * @covers \App\Auth\Entity\User\User
