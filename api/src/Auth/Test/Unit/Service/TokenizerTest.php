@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Auth\Test\Unit\Service;
 
 use DateInterval;
+use DateTimeImmutable;
 use App\Auth\Service\Tokenizer;
 use PHPUnit\Framework\TestCase;
 
@@ -18,7 +19,7 @@ final class TokenizerTest extends TestCase
     public function testSuccess(): void
     {
         $interval = new DateInterval('PT1H');
-        $date = new \DateTimeImmutable('+1 day');
+        $date = new DateTimeImmutable('+1 day');
 
         $tokenizer = new Tokenizer($interval);
 

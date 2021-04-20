@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Auth\Command\AttachNetwork;
 
 use App\Flusher;
+use DomainException;
 use App\Auth\Entity\User\Id;
 use App\Auth\Entity\User\Network;
 use App\Auth\Entity\User\UserRepository;
@@ -25,7 +26,7 @@ final class Handler
         $network = new Network($command->network, $command->identity);
 
         if ($this->users->hasByNetwork($network)) {
-            throw new \DomainException('User with this network already exists.');
+            throw new DomainException('User with this network already exists.');
         }
 
         $user = $this->users->get(new Id($command->id));

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Auth\Command\JoinByNetwork;
 
 use App\Flusher;
+use DomainException;
+use DateTimeImmutable;
 use App\Auth\Entity\User\Id;
 use App\Auth\Entity\User\User;
 use App\Auth\Entity\User\Email;
@@ -28,16 +30,16 @@ final class Handler
         $email = new Email($command->email);
 
         if ($this->users->hasByNetwork($network)) {
-            throw new \DomainException('User with this network already exists.');
+            throw new DomainException('User with this network already exists.');
         }
 
         if ($this->users->hasByEmail($email)) {
-            throw new \DomainException('User with this email already exists.');
+            throw new DomainException('User with this email already exists.');
         }
 
         $user = User::joinByNetwork(
             Id::generate(),
-            new \DateTimeImmutable(),
+            new DateTimeImmutable(),
             $email,
             $network
         );

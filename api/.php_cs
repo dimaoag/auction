@@ -55,4 +55,6 @@ return
             'self_static_accessor' => true,
 
             'static_lambda' => true,
+
+            'global_namespace_import' => true,
         ]);
