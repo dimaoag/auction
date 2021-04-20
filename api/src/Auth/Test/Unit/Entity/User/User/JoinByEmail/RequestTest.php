@@ -15,6 +15,8 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \App\Auth\Entity\User\User
+ *
+ * @internal
  */
 class RequestTest extends TestCase
 {

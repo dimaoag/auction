@@ -13,6 +13,8 @@ use App\Auth\Entity\User\Network;
 
 /**
  * @covers \App\Auth\Entity\User\User
+ *
+ * @internal
  */
 class JoinByNetworkTest extends TestCase
 {

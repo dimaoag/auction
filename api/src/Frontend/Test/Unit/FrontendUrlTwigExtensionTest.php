@@ -12,6 +12,8 @@ use App\Frontend\FrontendUrlTwigExtension;
 
 /**
  * @covers \App\Frontend\FrontendUrlTwigExtension
+ *
+ * @internal
  */
 class FrontendUrlTwigExtensionTest extends TestCase
 {

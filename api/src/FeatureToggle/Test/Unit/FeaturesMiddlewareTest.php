@@ -15,6 +15,8 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * @covers \App\FeatureToggle\FeaturesMiddleware
+ *
+ * @internal
  */
 class FeaturesMiddlewareTest extends TestCase
 {

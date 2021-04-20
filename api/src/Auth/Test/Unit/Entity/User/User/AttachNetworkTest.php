@@ -10,6 +10,8 @@ use App\Auth\Test\Builder\UserBuilder;
 
 /**
  * @covers \App\Auth\Entity\User\User
+ *
+ * @internal
  */
 class AttachNetworkTest extends TestCase
 {

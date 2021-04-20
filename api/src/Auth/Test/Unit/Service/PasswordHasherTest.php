@@ -10,6 +10,8 @@ use App\Auth\Service\PasswordHasher;
 
 /**
  * @covers \App\Auth\Service\PasswordHasher
+ *
+ * @internal
  */
 class PasswordHasherTest extends TestCase
 {

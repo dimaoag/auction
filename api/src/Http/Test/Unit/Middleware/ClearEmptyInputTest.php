@@ -16,6 +16,8 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * @covers \App\Http\Middleware\ClearEmptyInput
+ *
+ * @internal
  */
 class ClearEmptyInputTest extends TestCase
 {

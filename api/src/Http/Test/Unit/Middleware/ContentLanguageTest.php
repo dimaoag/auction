@@ -14,6 +14,8 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * @covers \Middlewares\ContentLanguage
+ *
+ * @internal
  */
 class ContentLanguageTest extends TestCase
 {

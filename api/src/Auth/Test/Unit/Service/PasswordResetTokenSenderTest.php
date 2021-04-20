@@ -17,6 +17,8 @@ use App\Auth\Service\PasswordResetTokenSender;
 
 /**
  * @covers \App\Auth\Service\PasswordResetTokenSender
+ *
+ * @internal
  */
 class PasswordResetTokenSenderTest extends TestCase
 {

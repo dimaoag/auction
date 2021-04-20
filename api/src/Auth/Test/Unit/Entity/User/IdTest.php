@@ -11,6 +11,8 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \App\Auth\Entity\User\Id
+ *
+ * @internal
  */
 class IdTest extends TestCase
 {

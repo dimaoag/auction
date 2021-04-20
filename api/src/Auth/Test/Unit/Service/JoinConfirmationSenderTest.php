@@ -17,6 +17,8 @@ use App\Auth\Service\JoinConfirmationSender;
 
 /**
  * @covers \App\Auth\Service\JoinConfirmationSender
+ *
+ * @internal
  */
 class JoinConfirmationSenderTest extends TestCase
 {

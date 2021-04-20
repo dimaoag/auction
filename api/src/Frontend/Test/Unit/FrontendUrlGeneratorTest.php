@@ -9,6 +9,8 @@ use App\Frontend\FrontendUrlGenerator;
 
 /**
  * @covers \App\Frontend\FrontendUrlGenerator
+ *
+ * @internal
  */
 class FrontendUrlGeneratorTest extends TestCase
 {

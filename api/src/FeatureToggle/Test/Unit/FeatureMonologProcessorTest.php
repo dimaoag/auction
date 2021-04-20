@@ -8,6 +8,9 @@ use PHPUnit\Framework\TestCase;
 use App\FeatureToggle\FeaturesContext;
 use App\FeatureToggle\FeaturesMonologProcessor;
 
+/**
+ * @internal
+ */
 class FeatureMonologProcessorTest extends TestCase
 {
     public function testProcess(): void

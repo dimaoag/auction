@@ -10,6 +10,8 @@ use App\Auth\Entity\User\Status;
 
 /**
  * @covers \App\Auth\Entity\User\Status
+ *
+ * @internal
  */
 class StatusTest extends TestCase
 {

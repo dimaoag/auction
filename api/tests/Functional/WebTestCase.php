@@ -15,6 +15,9 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 
+/**
+ * @internal
+ */
 class WebTestCase extends TestCase
 {
     private ?App $app = null;

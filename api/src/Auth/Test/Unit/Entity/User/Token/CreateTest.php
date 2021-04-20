@@ -12,6 +12,8 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \App\Auth\Entity\User\Token
+ *
+ * @internal
  */
 class CreateTest extends TestCase
 {
