@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Frontend\Test\Unit;
+namespace App\Frontend\Test;
 
 use PHPUnit\Framework\TestCase;
 use App\Frontend\FrontendUrlGenerator;

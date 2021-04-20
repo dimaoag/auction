@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Test\Unit\Middleware;
+namespace App\Http\Test\Middleware;
 
 use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Factory\StreamFactory;
