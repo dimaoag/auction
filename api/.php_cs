@@ -25,7 +25,16 @@ return
             '@PHP80Migration' => true,
             '@PHP80Migration:risky' => true,
             '@PHPUnit84Migration:risky' => true,
+
+            'no_unused_imports' => true,
             'ordered_imports' => [
                 'sortAlgorithm' => 'length',
             ],
+
+            'no_superfluous_phpdoc_tags' => ['remove_inheritdoc' => true],
+
+            'phpdoc_types_order' => ['null_adjustment' => 'always_last'],
+
+            'strict_comparison' => true,
+            'strict_param' => true,
         ]);
