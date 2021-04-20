@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use App\FeatureToggle\FeaturesMonologProcessor;
-use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use Monolog\Processor\ProcessorInterface;
-use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
+use Monolog\Handler\StreamHandler;
+use Psr\Container\ContainerInterface;
+use Monolog\Processor\ProcessorInterface;
+use App\FeatureToggle\FeaturesMonologProcessor;
 
 return [
     LoggerInterface::class => function (ContainerInterface $container) {
@@ -49,7 +49,7 @@ return [
             'file' => null,
             'stderr' => true,
             'processors' => [
-                FeaturesMonologProcessor::class
+                FeaturesMonologProcessor::class,
             ],
         ],
     ],

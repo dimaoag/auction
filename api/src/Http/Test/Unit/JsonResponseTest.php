@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Test\Unit;
 
-use App\Http\JsonResponse;
-use JsonException;
-use PHPUnit\Framework\TestCase;
 use stdClass;
+use JsonException;
+use App\Http\JsonResponse;
+use PHPUnit\Framework\TestCase;
 
 class JsonResponseTest extends TestCase
 {
@@ -46,7 +46,7 @@ class JsonResponseTest extends TestCase
         $array = [
             'str' => 'value',
             'int' => 1,
-            'none' => null
+            'none' => null,
         ];
 
         return [

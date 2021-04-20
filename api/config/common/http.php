@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-use Psr\Http\Message\ResponseFactoryInterface;
 use Slim\Psr7\Factory\ResponseFactory;
+use Psr\Http\Message\ResponseFactoryInterface;
 
 return [
-    ResponseFactoryInterface::class => static function (): ResponseFactoryInterface {
-        return new ResponseFactory();
-    },
+    ResponseFactoryInterface::class => static fn (): ResponseFactoryInterface => new ResponseFactory(),
 ];

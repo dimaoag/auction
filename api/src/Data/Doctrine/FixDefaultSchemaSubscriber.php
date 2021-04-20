@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\Data\Doctrine;
 
+use Doctrine\ORM\Tools\ToolEvents;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\DBAL\Schema\PostgreSqlSchemaManager;
 use Doctrine\ORM\Tools\Event\GenerateSchemaEventArgs;
-use Doctrine\ORM\Tools\ToolEvents;
 
 class FixDefaultSchemaSubscriber implements EventSubscriber
 {
     public function getSubscribedEvents(): array
     {
         return [
-            ToolEvents::postGenerateSchema => 'postGenerateSchema'
+            ToolEvents::postGenerateSchema => 'postGenerateSchema',
         ];
     }
 

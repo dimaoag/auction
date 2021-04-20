@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 use Middlewares\ContentLanguage;
 use Psr\Container\ContainerInterface;
-use Symfony\Component\Translation\Loader\PhpFileLoader;
-use Symfony\Component\Translation\Loader\XliffFileLoader;
 use Symfony\Component\Translation\Translator;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Translation\Loader\PhpFileLoader;
+use Symfony\Component\Translation\Loader\XliffFileLoader;
 
 return [
     TranslatorInterface::class => DI\get(Translator::class),
@@ -46,13 +48,13 @@ return [
                     'xlf',
                     __DIR__ . '/../../vendor/symfony/validator/Resources/translations/validators.ru.xlf',
                     'ru',
-                    'validators'
+                    'validators',
                 ],
                 [
                     'php',
                     __DIR__ . '/../../translations/exceptions.ru.php',
                     'ru',
-                    'exceptions'
+                    'exceptions',
                 ],
             ],
         ],

@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console;
 
-use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\Loader;
-use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
+use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 
 class FixturesLoadCommand extends Command
 {
@@ -48,7 +50,7 @@ class FixturesLoadCommand extends Command
 
         $executor = new ORMExecutor($this->em, new ORMPurger());
 
-        $executor->setLogger(static function (string $message) use ($output) {
+        $executor->setLogger(static function (string $message) use ($output): void {
             $output->writeln($message);
         });
 

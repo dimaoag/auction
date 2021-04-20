@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 use App\Auth;
-use Doctrine\Common\Cache\ArrayCache;
-use Doctrine\Common\Cache\FilesystemCache;
+use Doctrine\DBAL\Types\Type;
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
 use Doctrine\Common\EventManager;
 use Doctrine\Common\EventSubscriber;
-use Doctrine\DBAL\Types\Type;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping\UnderscoreNamingStrategy;
-use Doctrine\ORM\Tools\Setup;
+use Doctrine\Common\Cache\ArrayCache;
 use Psr\Container\ContainerInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Common\Cache\FilesystemCache;
+use Doctrine\ORM\Mapping\UnderscoreNamingStrategy;
 
 return [
     EntityManagerInterface::class => function (ContainerInterface $container): EntityManagerInterface {
@@ -72,11 +72,11 @@ return [
                 'user' => getenv('DB_USER'),
                 'password' => getenv('DB_PASSWORD'),
                 'dbname' => getenv('DB_NAME'),
-                'charset' => 'utf-8'
+                'charset' => 'utf-8',
             ],
             'subscribers' => [],
             'metadata_dirs' => [
-                __DIR__ . '/../../src/Auth/Entity'
+                __DIR__ . '/../../src/Auth/Entity',
             ],
             'types' => [
                 Auth\Entity\User\IdType::NAME => Auth\Entity\User\IdType::class,

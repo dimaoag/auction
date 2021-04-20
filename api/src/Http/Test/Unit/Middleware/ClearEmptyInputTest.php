@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Http\Test\Unit\Middleware;
 
-use App\Http\Middleware\ClearEmptyInput;
 use PHPUnit\Framework\TestCase;
+use Slim\Psr7\Factory\StreamFactory;
+use Slim\Psr7\Factory\ResponseFactory;
 use Psr\Http\Message\ResponseInterface;
+use App\Http\Middleware\ClearEmptyInput;
+use Slim\Psr7\Factory\UploadedFileFactory;
+use Slim\Psr7\Factory\ServerRequestFactory;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Slim\Psr7\Factory\ResponseFactory;
-use Slim\Psr7\Factory\ServerRequestFactory;
-use Slim\Psr7\Factory\StreamFactory;
-use Slim\Psr7\Factory\UploadedFileFactory;
 
 /**
  * @covers \App\Http\Middleware\ClearEmptyInput
@@ -32,7 +32,7 @@ class ClearEmptyInputTest extends TestCase
                     'null' => null,
                     'space' => ' ',
                     'name' => ' Name',
-                ]
+                ],
             ]);
 
         $handler = $this->createMock(RequestHandlerInterface::class);
@@ -46,7 +46,7 @@ class ClearEmptyInputTest extends TestCase
                         'null' => null,
                         'space' => '',
                         'name' => 'Name',
-                    ]
+                    ],
                 ], $request->getParsedBody());
                 return (new ResponseFactory())->createResponse();
             });
