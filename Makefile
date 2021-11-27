@@ -15,6 +15,7 @@ test-unit: api-test-unit
 test-functional: api-test-functional api-fixtures
 test-smoke: api-fixtures cucumber-clear cucumber-smoke
 test-e2e: api-fixtures cucumber-clear cucumber-e2e
+bash: api-bash
 
 update-deps: api-composer-update frontend-yarn-upgrade cucumber-yarn-upgrade restart
 update-local-deps: api-composer-update frontend-yarn-upgrade-local cucumber-yarn-upgrade-local restart
@@ -48,6 +49,9 @@ api-composer-install:
 
 api-composer-update:
 	docker-compose run --rm api-php-cli composer update
+
+api-bash:
+	docker-compose run --rm api-php-cli bash
 
 api-composer-outdated:
 	docker-compose run --rm api-php-cli composer outdated --direct
