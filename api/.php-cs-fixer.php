@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return
     (new PhpCsFixer\Config())
-        ->setCacheFile(__DIR__ . '/var/cache/.php_cs')
+        ->setCacheFile(__DIR__ . '/var/cache/.php-cs-fixer.cache')
         ->setFinder(
             PhpCsFixer\Finder::create()
                 ->in([
@@ -28,7 +28,7 @@ return
             '@PhpCsFixer' => true,
             '@PhpCsFixer:risky' => true,
 
-            'ordered_imports' => ['sortAlgorithm' => 'length'],
+            'ordered_imports' => ['sort_algorithm' => 'length'],
 
             'concat_space' => ['spacing' => 'one'],
             'cast_spaces' => ['space' => 'none'],

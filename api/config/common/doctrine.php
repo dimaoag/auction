@@ -8,11 +8,12 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Common\EventManager;
 use Doctrine\Common\EventSubscriber;
-use Doctrine\Common\Cache\ArrayCache;
 use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Common\Cache\FilesystemCache;
+use Doctrine\Common\Cache\Psr6\DoctrineProvider;
+use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Doctrine\ORM\Mapping\UnderscoreNamingStrategy;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 return [
     EntityManagerInterface::class => static function (ContainerInterface $container): EntityManagerInterface {
@@ -34,7 +35,9 @@ return [
             $settings['metadata_dirs'],
             $settings['dev_mode'],
             $settings['proxy_dir'],
-            $settings['cache_dir'] ? new FilesystemCache($settings['cache_dir']) : new ArrayCache(),
+            $settings['cache_dir'] ?
+                DoctrineProvider::wrap(new FilesystemAdapter('', 0, $settings['cache_dir'])) :
+                DoctrineProvider::wrap(new ArrayAdapter()),
             false
         );
 

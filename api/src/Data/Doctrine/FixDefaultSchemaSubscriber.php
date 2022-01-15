@@ -18,12 +18,16 @@ final class FixDefaultSchemaSubscriber implements EventSubscriber
         ];
     }
 
+    /**
+     * @throws \Doctrine\DBAL\Exception
+     * @throws \Doctrine\DBAL\Schema\SchemaException
+     */
     public function postGenerateSchema(GenerateSchemaEventArgs $args): void
     {
         $schemaManager = $args
             ->getEntityManager()
             ->getConnection()
-            ->getSchemaManager();
+            ->createSchemaManager();
 
         if (!$schemaManager instanceof PostgreSqlSchemaManager) {
             return;
