@@ -115,6 +115,9 @@ frontend-yarn-upgrade:
 frontend-yarn-upgrade-local:
 	cd frontend && yarn upgrade
 
+frontend-bash:
+	docker-compose run --rm frontend-node-cli
+
 frontend-yarn-outdated:
 	docker-compose run --rm frontend-node-cli yarn outdated
 
@@ -155,6 +158,9 @@ cucumber-yarn-upgrade:
 
 cucumber-yarn-upgrade-local:
 	cd cucumber && yarn upgrade
+
+cucumber-bash:
+	docker-compose run --rm cucumber-node-cli bash
 
 cucumber-yarn-outdated:
 	docker-compose run --rm cucumber-node-cli yarn outdated

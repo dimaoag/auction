@@ -54,7 +54,7 @@ function JoinForm() {
   }
 
   return (
-    <div data-testid="join-form" className={styles.joinForm}>
+    <div data-testid="join-form" className={styles.join}>
       <AlertError message={error} />
       <AlertSuccess message={success} />
 
