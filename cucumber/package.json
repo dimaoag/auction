@@ -13,7 +13,7 @@
   "dependencies": {
     "@cucumber/cucumber": "^7.0.0",
     "chai": "^4.2.0",
-    "puppeteer": "^8.0.0"
+    "puppeteer": "^13.0.1"
   },
   "devDependencies": {
     "eslint": "^7.4.0",
