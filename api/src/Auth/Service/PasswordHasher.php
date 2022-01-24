@@ -20,7 +20,7 @@ final class PasswordHasher
     {
         Assert::notEmpty($password);
         $hash = password_hash($password, PASSWORD_ARGON2I, ['memory_cost' => $this->memoryCost]);
-        if ($hash === null) {
+        if (!$hash) {
             throw new RuntimeException('Unable to generate hash.');
         }
         return $hash;

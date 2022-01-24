@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Auth;
+use function App\env;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
@@ -71,10 +72,10 @@ return [
             'proxy_dir' => __DIR__ . '/../../var/cache/doctrine/proxy',
             'connection' => [
                 'driver' => 'pdo_pgsql',
-                'host' => getenv('DB_HOST'),
-                'user' => getenv('DB_USER'),
-                'password' => getenv('DB_PASSWORD'),
-                'dbname' => getenv('DB_NAME'),
+                'host' => env('DB_HOST'),
+                'user' => env('DB_USER'),
+                'password' => env('DB_PASSWORD'),
+                'dbname' => env('DB_NAME'),
                 'charset' => 'utf-8',
             ],
             'subscribers' => [],

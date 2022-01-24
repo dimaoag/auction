@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use function App\env;
 use Psr\Container\ContainerInterface;
 use Finesse\SwiftMailerDefaultsPlugin\SwiftMailerDefaultsPlugin;
 
@@ -36,12 +37,12 @@ return [
 
     'config' => [
         'mailer' => [
-            'host' => getenv('MAILER_HOST'),
-            'port' => getenv('MAILER_PORT'),
-            'user' => getenv('MAILER_USER'),
-            'password' => getenv('MAILER_PASSWORD'),
-            'encryption' => getenv('MAILER_ENCRYPTION'),
-            'from' => [(string)getenv('MAILER_FROM_EMAIL') => 'Auction'],
+            'host' => env('MAILER_HOST'),
+            'port' => env('MAILER_PORT'),
+            'user' => env('MAILER_USER'),
+            'password' => env('MAILER_PASSWORD'),
+            'encryption' => env('MAILER_ENCRYPTION'),
+            'from' => [env('MAILER_FROM_EMAIL') => 'Auction'],
         ],
     ],
 ];

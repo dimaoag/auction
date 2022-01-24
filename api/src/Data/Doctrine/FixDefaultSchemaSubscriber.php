@@ -6,7 +6,7 @@ namespace App\Data\Doctrine;
 
 use Doctrine\ORM\Tools\ToolEvents;
 use Doctrine\Common\EventSubscriber;
-use Doctrine\DBAL\Schema\PostgreSqlSchemaManager;
+use Doctrine\DBAL\Schema\PostgreSQLSchemaManager;
 use Doctrine\ORM\Tools\Event\GenerateSchemaEventArgs;
 
 final class FixDefaultSchemaSubscriber implements EventSubscriber
@@ -29,10 +29,16 @@ final class FixDefaultSchemaSubscriber implements EventSubscriber
             ->getConnection()
             ->createSchemaManager();
 
-        if (!$schemaManager instanceof PostgreSqlSchemaManager) {
+        /**
+         * @psalm-suppress RedundantCondition
+         */
+        if (!$schemaManager instanceof PostgreSQLSchemaManager) {
             return;
         }
 
+        /**
+         * @psalm-suppress InternalMethod
+         */
         foreach ($schemaManager->getExistingSchemaSearchPaths() as $namespace) {
             if (!$args->getSchema()->hasNamespace($namespace)) {
                 $args->getSchema()->createNamespace($namespace);

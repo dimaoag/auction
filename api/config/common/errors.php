@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use function App\env;
 use Psr\Log\LoggerInterface;
 use Slim\Middleware\ErrorMiddleware;
 use App\ErrorHandler\LogErrorHandler;
@@ -41,7 +42,7 @@ return [
 
     'config' => [
         'errors' => [
-            'display_details' => (bool)getenv('APP_DEBUG'),
+            'display_details' => (bool)env('APP_DEBUG', '0'),
         ],
     ],
 ];

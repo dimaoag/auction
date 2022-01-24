@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Monolog\Logger;
+use function App\env;
 use Psr\Log\LoggerInterface;
 use Monolog\Handler\StreamHandler;
 use Psr\Container\ContainerInterface;
@@ -45,7 +46,7 @@ return [
 
     'config' => [
         'logger' => [
-            'debug' => (bool)getenv('APP_DEBUG'),
+            'debug' => (bool)env('APP_DEBUG', '0'),
             'file' => null,
             'stderr' => true,
             'processors' => [
