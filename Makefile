@@ -62,6 +62,9 @@ api-wait-db:
 api-migrations:
 	docker-compose run --rm api-php-cli composer app migrations:migrate -- --no-interaction
 
+api-migrations-diff:
+	docker-compose run --rm api-php-cli composer app migrations:diff
+
 api-fixtures:
 	docker-compose run --rm api-php-cli composer app fixtures:load
 
