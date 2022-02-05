@@ -322,3 +322,6 @@ docker-compose images // list of active images
 // Generate public and private keys
 // private
 openssl genrsa -out private.key 2048
+
+// public
+openssl rsa -in private.key -pubout -out public.key
