@@ -178,6 +178,12 @@ make try-testing-e2e
     id -> SENTRY_DSN
     description -> SENTRY_DSN
 
+- add locally JWT_ENCRYPTION_KEY credential -> add credentials
+    kind -> secret text
+    secret -> g2oVqBemucqNN6yB6f7/1x49xeEJfl08KXoetZRbaL0=
+    id -> JWT_ENCRYPTION_KEY
+    description -> JWT_ENCRYPTION_KEY
+
 - install sshagent plugin in Jenkins. settings -> plugins -> search ssh
 
 ======== add smtp client for emailing
@@ -320,8 +326,12 @@ docker-compose images // list of active images
 
 =======================================================================================
 // Generate public and private keys
+
 // private
 openssl genrsa -out private.key 2048
 
 // public
 openssl rsa -in private.key -pubout -out public.key
+
+// generate encryption key string
+php -r 'echo base64_encode(random_bytes(32)), PHP_EOL;'

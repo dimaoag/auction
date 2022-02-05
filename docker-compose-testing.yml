@@ -26,6 +26,12 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
             FRONTEND_URL: http://gateway:8080
             SENTRY_DSN: ""
+            JWT_ENCRYPTION_KEY: secret
+            JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key
+            JWT_PRIVATE_KEY_PATH: /run/secrets/jwt_private_key
+        secrets:
+            - jwt_public_key
+            - jwt_private_key
 
     api-php-cli:
         image: ${REGISTRY}/auction-api-php-cli:${IMAGE_TAG}
@@ -44,6 +50,12 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
             FRONTEND_URL: http://gateway:8080
             SENTRY_DSN: ""
+            JWT_ENCRYPTION_KEY: secret
+            JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key
+            JWT_PRIVATE_KEY_PATH: /run/secrets/jwt_private_key
+        secrets:
+            - jwt_public_key
+            - jwt_private_key
 
     testing-api-php-cli:
         image: ${REGISTRY}/auction-testing-api-php-cli:${IMAGE_TAG}
@@ -62,6 +74,12 @@ services:
             MAILER_FROM_EMAIL: mail@app.test
             FRONTEND_URL: http://gateway:8080
             SENTRY_DSN: ""
+            JWT_ENCRYPTION_KEY: secret
+            JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key
+            JWT_PRIVATE_KEY_PATH: /run/secrets/jwt_private_key
+        secrets:
+            - jwt_public_key
+            - jwt_private_key
 
     api-postgres:
         image: postgres:13.5-alpine
@@ -77,3 +95,9 @@ services:
         image: ${REGISTRY}/auction-cucumber-node-cli:${IMAGE_TAG}
         volumes:
             - ./cucumber/var:/app/var
+
+secrets:
+    jwt_public_key:
+        file: ./docker/development/secrets/jwt_public.key
+    jwt_private_key:
+        file: ./docker/development/secrets/jwt_private.key
