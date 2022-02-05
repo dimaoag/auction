@@ -4,3 +4,5 @@ api/.idea/
 .env
 /.docker-images-before
 /.docker-images-after
+private.key
+public.key

@@ -318,3 +318,7 @@ git rev-list HEAD | tail -n 1 // hash of first commit
 
 docker-compose images // list of active images
 
+=======================================================================================
+// Generate public and private keys
+// private
+openssl genrsa -out private.key 2048
