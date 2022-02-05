@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Sentry;
 use function App\env;
 use Psr\Log\LoggerInterface;
 use Slim\Middleware\ErrorMiddleware;
@@ -33,7 +34,8 @@ return [
 
         $middleware->setDefaultErrorHandler(
             new SentryDecorator(
-                new LogErrorHandler($callableResolver, $responseFactory, $logger)
+                new LogErrorHandler($callableResolver, $responseFactory, $logger),
+                $container->get(Sentry::class)
             )
         );
 
