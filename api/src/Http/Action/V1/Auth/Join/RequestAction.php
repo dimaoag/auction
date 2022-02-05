@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Action\V1\Auth\Join;
 
-use App\Http\EmptyResponse;
 use App\Http\Validator\Validator;
+use App\Http\Response\EmptyResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;

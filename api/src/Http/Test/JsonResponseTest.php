@@ -6,8 +6,8 @@ namespace App\Http\Test;
 
 use stdClass;
 use JsonException;
-use App\Http\JsonResponse;
 use PHPUnit\Framework\TestCase;
+use App\Http\Response\JsonResponse;
 
 /**
  * @internal

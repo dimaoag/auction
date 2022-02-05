@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Test;
 
-use App\Http\EmptyResponse;
 use PHPUnit\Framework\TestCase;
+use App\Http\Response\EmptyResponse;
 
 /**
  * @internal
