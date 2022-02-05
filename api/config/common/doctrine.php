@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Auth;
 use function App\env;
+use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
@@ -63,6 +64,10 @@ return [
             $config,
             $eventManager
         );
+    },
+    Connection::class => static function (ContainerInterface $container): Connection {
+        $em = $container->get(EntityManagerInterface::class);
+        return $em->getConnection();
     },
 
     'config' => [
