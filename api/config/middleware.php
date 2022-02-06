@@ -9,6 +9,7 @@ use Slim\Middleware\ErrorMiddleware;
 use App\FeatureToggle\FeaturesMiddleware;
 
 return static function (App $app): void {
+    $app->add(Middleware\Auth\Authenticate::class);
     $app->add(Middleware\DomainExceptionHandler::class);
     $app->add(Middleware\ValidationExceptionHandler::class);
     $app->add(FeaturesMiddleware::class);
