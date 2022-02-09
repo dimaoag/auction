@@ -20,6 +20,7 @@ use App\OAuth\Entity\RefreshTokenRepository;
 use League\OAuth2\Server\AuthorizationServer;
 use League\OAuth2\Server\Grant\AuthCodeGrant;
 use League\OAuth2\Server\Grant\RefreshTokenGrant;
+use App\Http\Middleware\Auth\BearerTokenValidator;
 use League\OAuth2\Server\Repositories\UserRepositoryInterface;
 use League\OAuth2\Server\Repositories\ScopeRepositoryInterface;
 use League\OAuth2\Server\Repositories\ClientRepositoryInterface;
@@ -78,9 +79,16 @@ return [
          */
         $config = $container->get('config')['oauth'];
 
+        $repository = $container->get(AccessTokenRepositoryInterface::class);
+        $publicKey = new CryptKey($config['public_key_path'], null, false);
+
+        $validator = new BearerTokenValidator($repository);
+        $validator->setPublicKey($publicKey);
+
         return new ResourceServer(
-            $container->get(AccessTokenRepositoryInterface::class),
-            new CryptKey($config['public_key_path'], null, false)
+            $repository,
+            $publicKey,
+            $validator
         );
     },
     ScopeRepositoryInterface::class => static function (ContainerInterface $container): ScopeRepository {
