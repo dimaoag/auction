@@ -55,6 +55,9 @@ final class Fetcher
             return null;
         }
 
-        return new User($row['id'], $row['status'] === Status::ACTIVE);
+        return new User(
+            id: $row['id'],
+            isActive: $row['status'] === Status::ACTIVE
+        );
     }
 }
