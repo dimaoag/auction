@@ -9,6 +9,7 @@ use Twig\Extension\DebugExtension;
 use Psr\Container\ContainerInterface;
 use Twig\Extension\ExtensionInterface;
 use App\Frontend\FrontendUrlTwigExtension;
+use App\Translator\TranslatorTwigExtension;
 use App\FeatureToggle\FeatureFlagTwigExtension;
 
 return [
@@ -60,6 +61,7 @@ return [
             'extensions' => [
                 FrontendUrlTwigExtension::class,
                 FeatureFlagTwigExtension::class,
+                TranslatorTwigExtension::class,
             ],
         ],
     ],
