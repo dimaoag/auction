@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use League\OAuth2\Server\ResourceServer;
 use App\OAuth\Entity\AccessTokenRepository;
 use App\OAuth\Entity\RefreshTokenRepository;
+use App\OAuth\Generator\AccessTokenGenerator;
 use League\OAuth2\Server\AuthorizationServer;
 use League\OAuth2\Server\Grant\AuthCodeGrant;
 use League\OAuth2\Server\Grant\RefreshTokenGrant;
@@ -136,6 +137,17 @@ return [
         $em = $container->get(EntityManagerInterface::class);
         $repo = $em->getRepository(RefreshToken::class);
         return new RefreshTokenRepository($em, $repo);
+    },
+    AccessTokenGenerator::class => static function (ContainerInterface $container): AccessTokenGenerator {
+        /**
+         * @psalm-suppress MixedArrayAccess
+         * @var array{
+         *    private_key_path:string,
+         * } $config
+         */
+        $config = $container->get('config')['oauth'];
+
+        return new AccessTokenGenerator($config['private_key_path']);
     },
 
     'config' => [
