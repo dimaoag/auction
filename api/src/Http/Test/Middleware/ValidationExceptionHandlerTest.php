@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Http\Test\Middleware;
 
 use PHPUnit\Framework\TestCase;
+use App\Validator\ValidationException;
 use Slim\Psr7\Factory\ResponseFactory;
 use Psr\Http\Message\ResponseInterface;
-use App\Http\Validator\ValidationException;
 use Slim\Psr7\Factory\ServerRequestFactory;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
