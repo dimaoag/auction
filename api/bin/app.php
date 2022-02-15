@@ -3,6 +3,7 @@
 
 declare(strict_types=1);
 
+use function App\env;
 use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Application;
@@ -11,8 +12,8 @@ use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-if (getenv('SENTRY_DSN')) {
-    Sentry\init(['dsn' => getenv('SENTRY_DSN')]);
+if ($dsn = env('SENTRY_DSN')) {
+    Sentry\init(['dsn' => $dsn]);
 }
 
 /** @var ContainerInterface $container */
