@@ -8,6 +8,7 @@ services:
             - "8080:8080"
             - "8081:8081"
             - "8082:8082"
+            - "8083:8083"
 
     frontend:
         build:
@@ -115,6 +116,18 @@ services:
     mailer:
         image: mailhog/mailhog
 
+    backup-storage:
+        image: minio/minio
+        environment:
+            MINIO_ROOT_USER: storage_app
+            MINIO_ROOT_PASSWORD_FILE: /run/secrets/backup_aws_secret_access_key
+        secrets:
+            - backup_aws_secret_access_key
+        volumes:
+            - backup-storage:/data
+        entrypoint: sh -c 'mkdir -p /data/backup && docker-entrypoint.sh minio server /data --console-address ":80"'
+
+
     cucumber-node-cli:
         build:
             context: cucumber/docker/development/node
@@ -123,6 +136,7 @@ services:
 
 volumes:
     api-postgres:
+    backup-storage:
 
 secrets:
     api_db_password:
@@ -137,3 +151,5 @@ secrets:
         file: ./docker/development/secrets/jwt_public_key
     jwt_private_key:
         file: ./docker/development/secrets/jwt_private_key
+    backup_aws_secret_access_key:
+        file: ./docker/development/secrets/backup_aws_secret_access_key
