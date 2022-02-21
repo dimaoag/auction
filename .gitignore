@@ -6,3 +6,4 @@ api/.idea/
 /.docker-images-after
 private.key
 public.key
+.DS_Store
