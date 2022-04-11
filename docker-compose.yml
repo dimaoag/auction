@@ -153,6 +153,13 @@ services:
             context: cucumber/docker/development/node
         volumes:
             - ./cucumber:/app
+        networks:
+            - auction_default
+        network_mode: service:gateway
+
+networks:
+    auction_default:
+        name: auction_default
 
 volumes:
     api-postgres:
