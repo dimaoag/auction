@@ -1,9 +1,9 @@
 {
   "license": "MIT",
   "scripts": {
-    "smoke": "cucumber-js --tags '@smoke and not @wip' --fail-fast --parallel 4",
+    "smoke": "cucumber-js --tags '@smoke and not @wip' --fail-fast --parallel 2",
     "smoke-ci": "cucumber-js --tags '@smoke and not @wip' --fail-fast --retry 2",
-    "e2e": "cucumber-js --tags 'not @wip' --parallel 4",
+    "e2e": "cucumber-js --tags 'not @wip'",
     "e2e-ci": "cucumber-js --tags 'not @wip' --retry 2",
     "e2e-report": "cucumber-js --tags 'not @wip' --parallel 4 --format json:var/report.json",
     "report": "node reporter.js",
