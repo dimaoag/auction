@@ -181,7 +181,7 @@ cucumber-smoke:
 	docker-compose run --rm cucumber-node-cli yarn smoke
 
 cucumber-e2e:
-	docker-compose run --rm cucumber-node-cli yarn e2e
+	docker-compose run cucumber-node-cli yarn e2e
 
 cucumber-report:
 	docker-compose run --rm cucumber-node-cli yarn report

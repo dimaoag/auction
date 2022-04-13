@@ -1,6 +1,7 @@
 version: "3.9"
 services:
     gateway:
+        container_name: gateway
         build:
             context: gateway/docker
             dockerfile: development/nginx/Dockerfile
@@ -153,13 +154,7 @@ services:
             context: cucumber/docker/development/node
         volumes:
             - ./cucumber:/app
-        networks:
-            - auction_default
-        network_mode: service:gateway
-
-networks:
-    auction_default:
-        name: auction_default
+        network_mode: container:gateway
 
 volumes:
     api-postgres:

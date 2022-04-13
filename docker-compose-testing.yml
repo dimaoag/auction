@@ -1,6 +1,7 @@
 version: "3.9"
 services:
     gateway:
+        container_name: gateway
         image: ${REGISTRY}/auction-testing-gateway:${IMAGE_TAG}
 
     frontend:
@@ -109,13 +110,8 @@ services:
         image: ${REGISTRY}/auction-cucumber-node-cli:${IMAGE_TAG}
         volumes:
             - ./cucumber/var:/app/var
-        networks:
-            - testing_default
-        network_mode: service:gateway
+        network_mode: container:gateway
 
-networks:
-    testing_default:
-        name: testing_default
 
 secrets:
     api_db_password:
