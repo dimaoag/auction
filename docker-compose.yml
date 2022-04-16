@@ -154,6 +154,8 @@ services:
             context: cucumber/docker/development/node
         volumes:
             - ./cucumber:/app
+        depends_on:
+            - gateway
         network_mode: container:gateway
 
 volumes:
