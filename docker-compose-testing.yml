@@ -25,7 +25,7 @@ services:
             MAILER_PASSWORD_FILE: /run/secrets/api_mailer_password
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
-            FRONTEND_URL: http://localhost:8080
+            FRONTEND_URL: http://localhost
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
             JWT_ENCRYPTION_KEY_FILE: /run/secrets/jwt_encryption_key
             JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key
@@ -53,7 +53,7 @@ services:
             MAILER_PASSWORD_FILE: /run/secrets/api_mailer_password
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
-            FRONTEND_URL: http://localhost:8080
+            FRONTEND_URL: http://localhost
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
             JWT_ENCRYPTION_KEY_FILE: /run/secrets/jwt_encryption_key
             JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key
@@ -81,7 +81,7 @@ services:
             MAILER_PASSWORD_FILE: /run/secrets/api_mailer_password
             MAILER_ENCRYPTION: tcp
             MAILER_FROM_EMAIL: mail@app.test
-            FRONTEND_URL: http://localhost:8080
+            FRONTEND_URL: http://localhost
             SENTRY_DSN_FILE: /run/secrets/sentry_dsn
             JWT_ENCRYPTION_KEY_FILE: /run/secrets/jwt_encryption_key
             JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key
