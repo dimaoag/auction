@@ -1,4 +1,0 @@
-certbot_email: dimaoag@gmail.com
-certbot_hosts:
-    - groundvn.site
-    - api.groundvn.site
