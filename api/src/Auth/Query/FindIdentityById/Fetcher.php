@@ -17,15 +17,15 @@ final class Fetcher
 
     public function fetch(string $id): ?Identity
     {
-        $stmt = $this->connection->createQueryBuilder()
+        $result = $this->connection->createQueryBuilder()
             ->select(['id', 'role'])
             ->from('auth_users')
-            ->where('id = ?')
-            ->setParameter(0, $id)
+            ->where('id = :id')
+            ->setParameter('id', $id)
             ->executeQuery();
 
         /** @var array{id: string, role: string}|false */
-        $row = $stmt->fetchAssociative();
+        $row = $result->fetchAssociative();
 
         if ($row === false) {
             return null;

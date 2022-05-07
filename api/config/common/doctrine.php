@@ -22,7 +22,7 @@ return [
         /**
          * @psalm-suppress MixedArrayAccess
          * @var array{
-         *     metadata_dirs:array,
+         *     metadata_dirs:array<array-key, string>,
          *     dev_mode:bool,
          *     proxy_dir:string,
          *     cache_dir:?string,
@@ -33,6 +33,7 @@ return [
          */
         $settings = $container->get('config')['doctrine'];
 
+        /** @psalm-suppress  DeprecatedClass */
         $config = Setup::createAnnotationMetadataConfiguration(
             $settings['metadata_dirs'],
             $settings['dev_mode'],

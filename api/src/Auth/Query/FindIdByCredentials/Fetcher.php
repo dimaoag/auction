@@ -21,15 +21,15 @@ final class Fetcher
 
     public function fetch(Query $query): ?User
     {
-        $stmt = $this->connection->createQueryBuilder()
+        $result = $this->connection->createQueryBuilder()
             ->select([
                 'id',
                 'status',
                 'password_hash',
             ])
             ->from('auth_users')
-            ->where('email = ?')
-            ->setParameter(0, mb_strtolower($query->email))
+            ->where('email = :email')
+            ->setParameter('email', mb_strtolower($query->email))
             ->executeQuery();
 
         /**
@@ -39,7 +39,7 @@ final class Fetcher
          *     password_hash: ?string,
          * }|false
          */
-        $row = $stmt->fetchAssociative();
+        $row = $result->fetchAssociative();
 
         if ($row === false) {
             return null;
