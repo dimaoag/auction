@@ -3,11 +3,17 @@
 declare(strict_types=1);
 
 use function App\env;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\Mime\Address;
+use Symfony\Component\Mailer\Mailer;
 use Psr\Container\ContainerInterface;
-use Finesse\SwiftMailerDefaultsPlugin\SwiftMailerDefaultsPlugin;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
+use Symfony\Component\Mailer\EventListener\EnvelopeListener;
 
 return [
-    Swift_Mailer::class => static function (ContainerInterface $container) {
+    MailerInterface::class => static function (ContainerInterface $container): MailerInterface {
         /**
          * @psalm-suppress MixedArrayAccess
          * @var array{
@@ -16,33 +22,42 @@ return [
          *     user:string,
          *     password:string,
          *     encryption:string,
-         *     from:array
+         *     from:array{email:string, name:string}
          * } $config
          */
         $config = $container->get('config')['mailer'];
 
-        $transport = (new Swift_SmtpTransport($config['host'], $config['port']))
+        $dispatcher = new EventDispatcher();
+
+        $dispatcher->addSubscriber(new EnvelopeListener(new Address(
+            $config['from']['email'],
+            $config['from']['name']
+        )));
+
+        $transport = (new EsmtpTransport(
+            $config['host'],
+            $config['port'],
+            $config['encryption'] === 'tls',
+            $dispatcher,
+            $container->get(LoggerInterface::class)
+        ))
             ->setUsername($config['user'])
-            ->setPassword($config['password'])
-            ->setEncryption($config['encryption']);
+            ->setPassword($config['password']);
 
-        $mailer = new Swift_Mailer($transport);
-
-        $mailer->registerPlugin(new SwiftMailerDefaultsPlugin([
-            'from' => $config['from'],
-        ]));
-
-        return $mailer;
+        return new Mailer($transport);
     },
 
     'config' => [
         'mailer' => [
             'host' => env('MAILER_HOST'),
-            'port' => env('MAILER_PORT'),
+            'port' => (int)env('MAILER_PORT'),
             'user' => env('MAILER_USERNAME'),
             'password' => env('MAILER_PASSWORD'),
             'encryption' => env('MAILER_ENCRYPTION'),
-            'from' => [env('MAILER_FROM_EMAIL') => 'Auction'],
+            'from' => [
+                'email' => env('MAILER_FROM_EMAIL'),
+                'name' => 'Auction',
+            ],
         ],
     ],
 ];
