@@ -13,6 +13,7 @@ use Doctrine\Common\EventSubscriber;
 use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Cache\Psr6\DoctrineProvider;
+use Doctrine\ORM\Mapping\Driver\AttributeDriver;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Doctrine\ORM\Mapping\UnderscoreNamingStrategy;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
@@ -34,15 +35,15 @@ return [
         $settings = $container->get('config')['doctrine'];
 
         /** @psalm-suppress  DeprecatedClass */
-        $config = Setup::createAnnotationMetadataConfiguration(
-            $settings['metadata_dirs'],
+        $config = Setup::createConfiguration(
             $settings['dev_mode'],
             $settings['proxy_dir'],
             $settings['cache_dir'] ?
                 DoctrineProvider::wrap(new FilesystemAdapter('', 0, $settings['cache_dir'])) :
-                DoctrineProvider::wrap(new ArrayAdapter()),
-            false
+                DoctrineProvider::wrap(new ArrayAdapter())
         );
+
+        $config->setMetadataDriverImpl(new AttributeDriver($settings['metadata_dirs']));
 
         $config->setNamingStrategy(new UnderscoreNamingStrategy());
 
