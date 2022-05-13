@@ -11,7 +11,7 @@
     "lint-fix": "eslint --fix --ext .js features"
   },
   "dependencies": {
-    "@cucumber/cucumber": "^7.0.0",
+    "@cucumber/cucumber": "^8.2.0",
     "chai": "^4.2.0",
     "puppeteer": "^13.0.1"
   },
