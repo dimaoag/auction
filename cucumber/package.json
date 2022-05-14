@@ -13,14 +13,13 @@
   "dependencies": {
     "@cucumber/cucumber": "^8.2.0",
     "chai": "^4.2.0",
-    "puppeteer": "^13.0.1"
+    "puppeteer": "^14.1.0"
   },
   "devDependencies": {
     "eslint": "^8.6.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-standard": "^5.0.0"
+    "eslint-plugin-promise": "^6.0.0"
   }
 }
