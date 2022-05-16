@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
@@ -14,11 +14,11 @@ const cookieFeatures = (cookies.features || '')
 
 const features = mergeFeatures(defaultFeatures, cookieFeatures)
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'))
+root.render(
   <React.StrictMode>
     <App features={features} />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 )
 
 serviceWorker.unregister()

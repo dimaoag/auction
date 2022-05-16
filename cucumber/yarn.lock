@@ -189,7 +189,7 @@
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
-  integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
+  integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
 "@types/lodash@^4.14.175":
   version "4.14.182"
@@ -260,7 +260,7 @@ ansi-styles@^4.1.0:
 any-promise@^1.0.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/any-promise/-/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
-  integrity sha1-q8av7tzqUugJzcA3au0845Y10X8=
+  integrity sha512-7UvmKalWRt1wgjL1RrGxoSJW/0QZFIegpeGvZG9kjp8vrRu55XTHbwnqq2GpXm9uLbcuhxm3IqX9OB4MZR1b2A==
 
 argparse@^2.0.1:
   version "2.0.1"
@@ -291,7 +291,7 @@ array.prototype.flat@^1.2.5:
 assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
-  integrity sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
+  integrity sha512-NfJ4UzBCcQGLDlQq7nHxH+tv3kyZ0hHQqF5BO6J7tNJeP5do1llPr8dZ8zHonfhAu0PHAdMkSo+8o0wxg9lZWw==
 
 assertion-error-formatter@^3.0.0:
   version "3.0.0"
@@ -337,7 +337,7 @@ brace-expansion@^1.1.7:
 buffer-crc32@~0.2.3:
   version "0.2.13"
   resolved "https://registry.yarnpkg.com/buffer-crc32/-/buffer-crc32-0.2.13.tgz#0d333e3f00eac50aa1454abd30ef8c2a5d9a7242"
-  integrity sha1-DTM+PwDqxQqhRUq9MO+MKl2ackI=
+  integrity sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==
 
 buffer-from@^1.0.0:
   version "1.1.2"
@@ -398,7 +398,7 @@ chalk@^4.0.0, chalk@^4.1.2:
 check-error@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
-  integrity sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=
+  integrity sha512-BrgHpW9NURQgzoNyjfq0Wu6VFO6D7IZEmJNdtgNqpzGG8RuNFHt2jQxWlAs4HMe119chBnv+34syEZtc6IhLtA==
 
 chownr@^1.1.1:
   version "1.1.4"
@@ -991,9 +991,9 @@ glob-parent@^6.0.1:
     is-glob "^4.0.3"
 
 glob@^7.1.3, glob@^7.1.6:
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.2.tgz#29deb38e1ef90f132d5958abe9c3ee8e87f3c318"
-  integrity sha512-NzDgHDiJwKYByLrL5lONmQFpK/2G78SMMfo+E9CuGlX4IkvfKDsiQSNPwAYxEy+e6p7ZQ3uslSLlwlJcqezBmQ==
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.3.tgz#b8df0fb802bbfa8e89bd1d938b4e16578ed44f2b"
+  integrity sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"

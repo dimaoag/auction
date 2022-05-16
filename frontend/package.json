@@ -5,15 +5,15 @@
   "dependencies": {
     "cookie": "^0.4.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.1.1",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-config-prettier": "^8.0.0",
@@ -26,10 +26,10 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-testing-library": "^5.0.3",
     "prettier": "^2.0.4",
-    "react-test-renderer": "^17.0.1",
+    "react-test-renderer": "^18.1.0",
     "stylelint": "^14.2.0",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-standard": "^25.0.0",
     "stylelint-prettier": "^2.0.0"
   },
   "scripts": {
