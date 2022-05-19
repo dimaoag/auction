@@ -22,7 +22,7 @@ update-local-deps: api-composer-update frontend-yarn-upgrade-local cucumber-yarn
 check-deps: api-composer-outdated frontend-yarn-outdated cucumber-yarn-outdated
 
 docker-up:
-	docker-compose up -d
+	docker compose up -d
 
 docker-down:
 	docker-compose down --remove-orphans
