@@ -335,3 +335,6 @@ openssl rsa -in private.key -pubout -out public.key
 
 // generate encryption key string
 php -r 'echo base64_encode(random_bytes(32)), PHP_EOL;'
+
+// convert public or private key to string
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' private.key
