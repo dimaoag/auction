@@ -1,5 +1,7 @@
 FROM php:8.1-cli-alpine AS builder
 
+RUN apk add --update linux-headers
+
 RUN apk add --no-cache postgresql-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo_pgsql opcache
@@ -20,6 +22,8 @@ RUN composer install --no-dev --prefer-dist --no-progress --no-suggest --optimiz
 ### FPM ###
 
 FROM php:8.1-fpm-alpine
+
+RUN apk add --update linux-headers
 
 RUN apk add --no-cache postgresql-dev fcgi \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \

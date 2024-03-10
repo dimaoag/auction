@@ -170,6 +170,8 @@ services:
         networks:
             - traefik-public
             - default
+        ports:
+            - "8025:8025"
         labels:
             - traefik.enable=true
             - traefik.docker.network=traefik-public
